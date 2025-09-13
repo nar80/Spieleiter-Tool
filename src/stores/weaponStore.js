@@ -1021,13 +1021,18 @@ export const useWeaponStore = defineStore('weapon', () => {
   }
   
   // Schadenswurf mit Tearing
-  const rollDamage = (damageFormula, hasTearing = false) => {
+ const rollDamage = (damageFormula, hasTearing = false, strengthBonus = 0, weaponType = 'ranged') => {
     const match = damageFormula.match(/(\d+)d(\d+)([+-]\d+)?/)
     if (!match) return { total: 0, rolls: [], formula: damageFormula, hasCritical: false }
     
     const numDice = parseInt(match[1])
     const diceSize = parseInt(match[2])
-    const modifier = parseInt(match[3]) || 0
+    let modifier = parseInt(match[3]) || 0
+    
+    // Füge Stärkebonus bei Nahkampfwaffen hinzu
+    if (weaponType === 'melee' && strengthBonus > 0) {
+      modifier += strengthBonus
+    }
     
     let rolls = []
     let total = modifier
@@ -1043,19 +1048,17 @@ export const useWeaponStore = defineStore('weapon', () => {
       }
     }
     
-    // Tearing: Würfle niedrigsten neu
+    // Tearing logic bleibt gleich...
     let tearingInfo = null
     if (hasTearing && rolls.length > 0) {
-      const minIndex = rolls.indexOf(Math.min(...rolls))
-      const oldRoll = rolls[minIndex]
+      const lowestIndex = rolls.indexOf(Math.min(...rolls))
+      const oldRoll = rolls[lowestIndex]
       const newRoll = Math.floor(Math.random() * diceSize) + 1
-      
-      tearingInfo = { oldRoll, newRoll, applied: false }
       
       if (newRoll > oldRoll) {
         total = total - oldRoll + newRoll
-        rolls[minIndex] = newRoll
-        tearingInfo.applied = true
+        rolls[lowestIndex] = newRoll
+        tearingInfo = { applied: true, oldRoll, newRoll }
         
         if (newRoll === 10 || (diceSize === 5 && newRoll === 5)) {
           hasCritical = true
@@ -1064,13 +1067,13 @@ export const useWeaponStore = defineStore('weapon', () => {
     }
     
     return {
-      total: Math.max(0, total),
+      total,
       rolls,
       modifier,
       formula: damageFormula,
       hasCritical,
-      diceSize,
-      tearingInfo
+      tearingInfo,
+      strengthBonusApplied: weaponType === 'melee' ? strengthBonus : 0
     }
   }
   

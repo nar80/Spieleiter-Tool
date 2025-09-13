@@ -20,6 +20,7 @@ export const useCombatStore = defineStore('combat', () => {
   
   // Actions
   const addCombatant = (combatant) => {
+    console.log(combatant);
     // Konvertiere alte weapons zu weaponInstances wenn nötig
     let weaponInstances = combatant.weaponInstances || []
     
@@ -52,6 +53,7 @@ export const useCombatStore = defineStore('combat', () => {
       armorIds: combatant.armorIds || [],
       attributes: combatant.attributes || {},
       skills: combatant.skills || {},
+      talents: combatant.talents || [],
       weaponInstances: weaponInstancesWithAmmo,
       notes: combatant.notes || '',
       conditions: combatant.conditions || [],

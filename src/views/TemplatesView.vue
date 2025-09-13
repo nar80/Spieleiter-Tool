@@ -305,13 +305,13 @@
               </q-item-label>
               <div class="q-mt-sm">
                 <q-chip 
-                  v-for="npcId in encounter.npcIds" 
-                  :key="npcId"
+                  v-for="(entry, index) in getEncounterDisplayEntries(encounter)"
+                  :key="index"
                   size="sm"
                   color="red"
                   text-color="white"
                 >
-                  {{ characterStore.templates.find(t => t.id === npcId)?.name || 'Unbekannt' }}
+                  {{ entry }}
                 </q-chip>
               </div>
             </q-item-section>
@@ -355,6 +355,7 @@
           narrow-indicator
         >
           <q-tab name="basic" label="Grunddaten" />
+          <q-tab name="talents" label="Talente" />
           <q-tab name="equipment" label="Ausrüstung & Notizen" />
         </q-tabs>
         
@@ -453,6 +454,38 @@
             </div>
           </q-tab-panel>
           
+          <q-tab-panel name="talents">
+  <div class="q-gutter-sm">
+    <div class="text-subtitle2 q-mb-xs">Talente</div>
+    
+    <!-- Liste verfügbarer Talente -->
+    <div v-for="talent in availableTalents" :key="talent.id" class="q-mb-sm">
+      <q-checkbox
+        v-model="selectedTalentIds"
+        :val="talent.id"
+        :label="talent.name"
+      />
+      
+      <!-- Level-Slider für stackable Talente -->
+      <div v-if="talent.stackable && selectedTalentIds.includes(talent.id)" class="q-ml-lg">
+        <q-slider
+          v-model="talentLevels[talent.id]"
+          :min="1"
+          :max="talent.maxStacks"
+          :step="1"
+          label
+          markers
+          snap
+          :label-value="`Level ${talentLevels[talent.id] || 1}`"
+        />
+      </div>
+      
+      <div class="text-caption q-ml-lg text-grey">
+        {{ talent.description }}
+      </div>
+    </div>
+  </div>
+</q-tab-panel>
           <!-- Ausrüstung Tab -->
           <q-tab-panel name="equipment">
             <div class="q-gutter-sm">
@@ -658,12 +691,12 @@
     
     <!-- Encounter Dialog -->
     <q-dialog v-model="encounterDialog" persistent>
-      <q-card style="min-width: 500px">
+      <q-card style="min-width: 600px; max-width: 900px">
         <q-card-section>
           <div class="text-h6">{{ editingEncounter ? 'Encounter bearbeiten' : 'Neues Encounter' }}</div>
         </q-card-section>
         
-        <q-card-section>
+        <q-card-section style="max-height: 70vh" class="scroll">
           <q-input 
             v-model="encounterForm.name" 
             label="Encounter Name" 
@@ -681,12 +714,127 @@
             hint="Optionale Beschreibung des Encounters"
           />
           
-          <div class="text-subtitle2 q-mb-sm">NPCs auswählen:</div>
-          <q-option-group
-            v-model="encounterForm.npcIds"
-            :options="npcOptions"
-            type="checkbox"
-          />
+          <!-- Tag Filter für Encounter NPCs -->
+          <div class="q-mb-md">
+            <q-input
+              v-model="encounterTagFilter"
+              @update:model-value="updateEncounterTagFilter"
+              debounce="300"
+              filled
+              dense
+              placeholder="Nach Tags filtern (getrennt durch Komma oder Leerzeichen)..."
+              class="q-mb-sm"
+              hint="z.B. 'Dämon, Chaos' oder 'Ork Boss'"
+            >
+              <template v-slot:prepend>
+                <q-icon name="label" />
+              </template>
+              <template v-slot:append v-if="encounterTagFilter">
+                <q-icon name="close" @click="clearEncounterTagFilter" class="cursor-pointer" />
+              </template>
+            </q-input>
+            
+            <!-- Aktive Filter anzeigen -->
+            <div v-if="encounterSelectedTags.length > 0">
+              <span class="text-caption">Aktive Filter: </span>
+              <q-chip 
+                v-for="tag in encounterSelectedTags" 
+                :key="tag"
+                removable
+                @remove="removeEncounterTagFilter(tag)"
+                color="primary"
+                text-color="white"
+                size="sm"
+              >
+                {{ tag }}
+              </q-chip>
+            </div>
+          </div>
+          
+          <!-- Bereits hinzugefügte NPCs -->
+          <div v-if="encounterForm.npcEntries && encounterForm.npcEntries.length > 0" class="q-mb-md">
+            <div class="text-subtitle2 q-mb-sm">Ausgewählte NPCs:</div>
+            <q-list bordered separator dense>
+              <q-item v-for="(entry, index) in encounterForm.npcEntries" :key="index">
+                <q-item-section>
+                  <q-item-label>
+                    {{ entry.count }}x {{ characterStore.templates.find(t => t.id === entry.npcId)?.name || 'Unbekannt' }}
+                  </q-item-label>
+                </q-item-section>
+                <q-item-section side>
+                  <div class="row q-gutter-xs">
+                    <q-btn
+                      flat
+                      round
+                      size="sm"
+                      icon="remove"
+                      @click="decreaseNpcCount(index)"
+                      :disable="entry.count <= 1"
+                    />
+                    <span class="q-px-sm" style="min-width: 30px; text-align: center;">{{ entry.count }}</span>
+                    <q-btn
+                      flat
+                      round
+                      size="sm"
+                      icon="add"
+                      @click="increaseNpcCount(index)"
+                    />
+                    <q-btn
+                      flat
+                      round
+                      size="sm"
+                      icon="delete"
+                      color="red"
+                      @click="removeNpcEntry(index)"
+                    />
+                  </div>
+                </q-item-section>
+              </q-item>
+            </q-list>
+          </div>
+          
+          <div class="text-subtitle2 q-mb-sm">NPCs hinzufügen:</div>
+          <div class="row q-col-gutter-sm">
+            <div v-for="npc in filteredEncounterNPCs" :key="npc.id" class="col-12 col-md-6">
+              <q-card flat bordered>
+                <q-item>
+                  <q-item-section>
+                    <q-item-label>{{ npc.name }}</q-item-label>
+                    <q-item-label caption>
+                      <q-badge :color="getCategoryColor(npc.category)" size="sm">
+                        {{ npc.category }}
+                      </q-badge>
+                      <span v-if="npc.tags && npc.tags.length > 0" class="q-ml-sm">
+                        <q-chip 
+                          v-for="tag in npc.tags" 
+                          :key="tag" 
+                          size="xs" 
+                          dense
+                        >
+                          {{ tag }}
+                        </q-chip>
+                      </span>
+                    </q-item-label>
+                  </q-item-section>
+                  <q-item-section side>
+                    <q-btn
+                      flat
+                      dense
+                      icon="add"
+                      color="primary"
+                      @click="addNpcToEncounter(npc.id)"
+                    >
+                      <q-tooltip>Zu Encounter hinzufügen</q-tooltip>
+                    </q-btn>
+                  </q-item-section>
+                </q-item>
+              </q-card>
+            </div>
+          </div>
+          
+          <div v-if="filteredEncounterNPCs.length === 0" class="text-center text-grey q-pa-md">
+            {{ encounterSelectedTags.length > 0 ? 'Keine NPCs mit diesen Tags gefunden' : 'Keine NPCs verfügbar' }}
+          </div>
         </q-card-section>
         
         <q-card-actions align="right">
@@ -744,6 +892,7 @@ import { useCombatStore } from '../stores/combatStore'
 import { useWeaponStore } from '../stores/weaponStore'
 import { useArmorStore } from '../stores/armorStore'
 import { useSystemStore } from '../stores/systemStore'
+import { useTalentStore } from '../stores/talentStore'
 import { useQuasar } from 'quasar'
 import { useRouter } from 'vue-router'
 
@@ -752,6 +901,7 @@ const combatStore = useCombatStore()
 const weaponStore = useWeaponStore()
 const armorStore = useArmorStore()
 const systemStore = useSystemStore()
+const talentStore = useTalentStore()
 const $q = useQuasar()
 const router = useRouter()
 
@@ -777,6 +927,7 @@ const templateForm = reactive({
   toughness: 30,
   notes: '',
   tags: [], // Tags für Kategorisierung
+  talents: [],
   weaponInstances: [], // Neue Waffen-Instanzen
   attributes: {
     // WH40k
@@ -814,6 +965,10 @@ const armorTemplate = ref(null)
 // Weapon selection state
 const selectedWeaponToAdd = ref(null)
 
+// Talent-Auswahl
+const selectedTalentIds = ref([])
+const talentLevels = ref({})
+
 // Import/Export state
 const showImportDialog = ref(false)
 const importFile = ref(null)
@@ -826,8 +981,13 @@ const editingEncounter = ref(null)
 const encounterForm = reactive({
   name: '',
   description: '',
-  npcIds: []
+  npcIds: [], // Für Kompatibilität mit alten Encounters
+  npcEntries: [] // Neue Struktur: [{npcId: string, count: number}]
 })
+
+// Encounter filter state
+const encounterTagFilter = ref('')
+const encounterSelectedTags = ref([])
 
 const activeGroupId = computed({
   get: () => characterStore.playerGroups.find(g => g.isActive)?.id,
@@ -870,6 +1030,13 @@ const filteredNPCTemplates = computed(() => {
   return templates
 })
 
+ const availableTalents = computed(() => {
+  return talentStore.getAvailableTalentsForTemplate(
+    templateForm,
+    systemStore.selectedSystem
+  )
+})
+
 const availableTags = computed(() => {
   return characterStore.getAllTags()
 })
@@ -907,6 +1074,23 @@ const npcOptions = computed(() =>
     value: n.id
   }))
 )
+
+const filteredEncounterNPCs = computed(() => {
+  let templates = npcTemplates.value
+  
+  // Filter by selected tags
+  if (encounterSelectedTags.value.length > 0) {
+    templates = templates.filter(t => {
+      if (!t.tags || t.tags.length === 0) return false
+      return encounterSelectedTags.value.every(tag => {
+        const tagLower = tag.toLowerCase()
+        return t.tags.some(tTag => tTag.toLowerCase().includes(tagLower))
+      })
+    })
+  }
+  
+  return templates
+})
 
 const availableWeapons = computed(() => {
   // Nutze die neue Funktion die Template-Tags berücksichtigt
@@ -979,7 +1163,6 @@ const editTemplate = (template) => {
     category: template.category,
     hp: template.hp?.max || template.hp || 10,
     initiativeModifier: template.initiativeModifier,
-    toughness: template.toughness,
     notes: template.notes,
     tags: template.tags ? [...template.tags] : [],
     weaponInstances: template.weaponInstances ? [...template.weaponInstances] : (template.weapons || []),
@@ -990,6 +1173,14 @@ const editTemplate = (template) => {
       STR: 10, DEX: 10, CON: 10, INT: 10, WIS: 10, CHA: 10
     }
   })
+     // DANACH die Talente separat laden
+    selectedTalentIds.value = template.talents?.map(t => t.id) || []
+    talentLevels.value = {}
+    template.talents?.forEach(t => {
+      if (t.level > 1) {
+        talentLevels.value[t.id] = t.level
+      }
+    })
   selectedWeaponToAdd.value = null
   templateDialog.value = true
 }
@@ -1008,6 +1199,11 @@ const saveTemplate = () => {
     return
   }
   
+  const talents = selectedTalentIds.value.map(id => ({
+    id,
+    level: talentLevels.value[id] || 1
+  }))
+
   const templateData = {
     name: templateForm.name,
     type: templateForm.type,
@@ -1019,7 +1215,8 @@ const saveTemplate = () => {
     notes: templateForm.notes,
     tags: templateForm.tags || [],
     weaponInstances: templateForm.weaponInstances || [],
-    attributes: templateForm.attributes || {}
+    attributes: templateForm.attributes || {},
+    talents
   }
   
   if (editingTemplate.value) {
@@ -1370,6 +1567,9 @@ const openEncounterDialog = () => {
   encounterForm.name = ''
   encounterForm.description = ''
   encounterForm.npcIds = []
+  encounterForm.npcEntries = []
+  encounterTagFilter.value = ''
+  encounterSelectedTags.value = []
   encounterDialog.value = true
 }
 
@@ -1377,13 +1577,28 @@ const editEncounter = (encounter) => {
   editingEncounter.value = encounter
   encounterForm.name = encounter.name
   encounterForm.description = encounter.description || ''
-  encounterForm.npcIds = [...encounter.npcIds]
+  
+  // Konvertiere alte npcIds zu npcEntries wenn nötig
+  if (encounter.npcEntries && encounter.npcEntries.length > 0) {
+    encounterForm.npcEntries = [...encounter.npcEntries]
+  } else if (encounter.npcIds && encounter.npcIds.length > 0) {
+    // Konvertiere alte npcIds zu npcEntries mit count: 1
+    encounterForm.npcEntries = encounter.npcIds.map(id => ({ npcId: id, count: 1 }))
+  } else {
+    encounterForm.npcEntries = []
+  }
+  
+  encounterForm.npcIds = [...(encounter.npcIds || [])] // Für Kompatibilität
+  encounterTagFilter.value = ''
+  encounterSelectedTags.value = []
   encounterDialog.value = true
 }
 
 const closeEncounterDialog = () => {
   encounterDialog.value = false
   editingEncounter.value = null
+  encounterTagFilter.value = ''
+  encounterSelectedTags.value = []
 }
 
 const saveEncounter = () => {
@@ -1395,7 +1610,8 @@ const saveEncounter = () => {
     return
   }
   
-  if (encounterForm.npcIds.length === 0) {
+  if ((!encounterForm.npcEntries || encounterForm.npcEntries.length === 0) && 
+      (!encounterForm.npcIds || encounterForm.npcIds.length === 0)) {
     $q.notify({
       type: 'negative',
       message: 'Bitte mindestens einen NPC auswählen'
@@ -1403,17 +1619,27 @@ const saveEncounter = () => {
     return
   }
   
+  // Erstelle npcIds aus npcEntries für Kompatibilität
+  const allNpcIds = []
+  encounterForm.npcEntries.forEach(entry => {
+    for (let i = 0; i < entry.count; i++) {
+      allNpcIds.push(entry.npcId)
+    }
+  })
+  
   if (editingEncounter.value) {
     characterStore.updateEncounterGroup(editingEncounter.value.id, {
       name: encounterForm.name,
       description: encounterForm.description,
-      npcIds: encounterForm.npcIds
+      npcIds: allNpcIds,
+      npcEntries: encounterForm.npcEntries
     })
   } else {
     characterStore.addEncounterGroup({
       name: encounterForm.name,
       description: encounterForm.description,
-      npcIds: encounterForm.npcIds
+      npcIds: allNpcIds,
+      npcEntries: encounterForm.npcEntries
     })
   }
   
@@ -1423,6 +1649,103 @@ const saveEncounter = () => {
     type: 'positive',
     message: 'Encounter gespeichert'
   })
+}
+
+// Neue Encounter-Methoden für Tag-Filter und mehrfaches Hinzufügen
+const updateEncounterTagFilter = (value) => {
+  if (!value) {
+    encounterSelectedTags.value = []
+    return
+  }
+  
+  // Split by comma or multiple spaces
+  const tags = value.split(/[,\s]+/)
+    .map(tag => tag.trim())
+    .filter(tag => tag.length > 0)
+  
+  encounterSelectedTags.value = tags
+}
+
+const clearEncounterTagFilter = () => {
+  encounterTagFilter.value = ''
+  encounterSelectedTags.value = []
+}
+
+const removeEncounterTagFilter = (tag) => {
+  const index = encounterSelectedTags.value.indexOf(tag)
+  if (index > -1) {
+    encounterSelectedTags.value.splice(index, 1)
+    encounterTagFilter.value = encounterSelectedTags.value.join(', ')
+  }
+}
+
+const addNpcToEncounter = (npcId) => {
+  // Prüfe ob NPC bereits in der Liste ist
+  const existingEntry = encounterForm.npcEntries.find(e => e.npcId === npcId)
+  
+  if (existingEntry) {
+    // Erhöhe count wenn bereits vorhanden
+    existingEntry.count++
+  } else {
+    // Füge neuen Eintrag hinzu
+    encounterForm.npcEntries.push({
+      npcId: npcId,
+      count: 1
+    })
+  }
+  
+  $q.notify({
+    type: 'positive',
+    message: 'NPC hinzugefügt',
+    timeout: 500
+  })
+}
+
+const increaseNpcCount = (index) => {
+  if (encounterForm.npcEntries[index]) {
+    encounterForm.npcEntries[index].count++
+  }
+}
+
+const decreaseNpcCount = (index) => {
+  if (encounterForm.npcEntries[index] && encounterForm.npcEntries[index].count > 1) {
+    encounterForm.npcEntries[index].count--
+  }
+}
+
+const removeNpcEntry = (index) => {
+  encounterForm.npcEntries.splice(index, 1)
+}
+
+const getEncounterDisplayEntries = (encounter) => {
+  const entries = []
+  
+  if (encounter.npcEntries && encounter.npcEntries.length > 0) {
+    // Neue Struktur mit count
+    encounter.npcEntries.forEach(entry => {
+      const template = characterStore.templates.find(t => t.id === entry.npcId)
+      if (template) {
+        const displayText = entry.count > 1 ? `${entry.count}x ${template.name}` : template.name
+        entries.push(displayText)
+      }
+    })
+  } else if (encounter.npcIds && encounter.npcIds.length > 0) {
+    // Alte Struktur - gruppiere gleiche IDs
+    const npcCounts = {}
+    encounter.npcIds.forEach(id => {
+      npcCounts[id] = (npcCounts[id] || 0) + 1
+    })
+    
+    Object.entries(npcCounts).forEach(([id, count]) => {
+      const template = characterStore.templates.find(t => t.id === id)
+      if (template) {
+        const displayText = count > 1 ? `${count}x ${template.name}` : template.name
+        entries.push(displayText)
+      }
+    })
+  }
+  
+  return entries
 }
 
 const deleteEncounter = (id) => {
@@ -1440,9 +1763,9 @@ const deleteEncounter = (id) => {
 }
 
 const addEncounterToCombat = (encounter) => {
-  const npcs = characterStore.getEncounterNPCs(encounter.id)
+  const npcsToAdd = characterStore.prepareEncounterForCombat(encounter)
   
-  if (npcs.length === 0) {
+  if (npcsToAdd.length === 0) {
     $q.notify({
       type: 'negative',
       message: 'Encounter hat keine NPCs'
@@ -1450,24 +1773,16 @@ const addEncounterToCombat = (encounter) => {
     return
   }
   
-  npcs.forEach(npc => {
-    combatStore.addCombatant({
-      name: npc.name,
-      type: 'npc',
-      hp: npc.hp?.max || npc.hp || 10,
-      initiativeModifier: npc.initiativeModifier,
-      armorIds: npc.armorIds || [],
-      toughness: npc.toughness,
-      attributes: npc.attributes,
-      weaponInstances: npc.weaponInstances || npc.weapons || []
-    })
+  // Füge alle NPCs zum Kampf hinzu
+  npcsToAdd.forEach(npc => {
+    combatStore.addCombatant(npc)
   })
   
   combatStore.saveCombat()
   
   $q.notify({
     type: 'positive',
-    message: `${npcs.length} NPCs aus "${encounter.name}" zum Kampf hinzugefügt`
+    message: `${npcsToAdd.length} NPCs aus "${encounter.name}" hinzugefügt`
   })
   
   router.push('/combat')

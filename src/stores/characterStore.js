@@ -30,7 +30,7 @@ export const useCharacterStore = defineStore('character', () => {
       hp: hpObject,
       initiativeModifier: template.initiativeModifier || 0,
       armorIds: template.armorIds || [], // List of equipped armor IDs
-      toughness: template.toughness || 0, // WH40k specific
+      talents: template.talents || [],
       attributes: template.attributes || {},
       weaponInstances: template.weaponInstances || [], // Multiple instances of same weapon
       skills: template.skills || {},
@@ -132,6 +132,60 @@ export const useCharacterStore = defineStore('character', () => {
     return templates.value.filter(t => group.npcIds.includes(t.id))
   }
   
+   const prepareEncounterForCombat = (encounter) => {
+    let npcsToAdd = []
+    
+    // Nutze die neue npcEntries Struktur wenn vorhanden
+    if (encounter.npcEntries && encounter.npcEntries.length > 0) {
+      encounter.npcEntries.forEach(entry => {
+        const template = templates.value.find(t => t.id === entry.npcId)
+        if (template) {
+          // Füge so viele Kopien hinzu wie count angibt
+          for (let i = 0; i < entry.count; i++) {
+            const nameSuffix = entry.count > 1 ? ` ${i + 1}` : ''
+            npcsToAdd.push({
+              name: template.name + nameSuffix,
+              type: 'npc',
+              hp: template.hp?.max || template.hp || 10,
+              initiativeModifier: template.initiativeModifier,
+              armorIds: template.armorIds || [],
+              attributes: template.attributes,
+              talents: template.talents || [],
+              weaponInstances: template.weaponInstances || template.weapons || []
+            })
+          }
+        }
+      })
+    } else if (encounter.npcIds && encounter.npcIds.length > 0) {
+      // Fallback auf alte npcIds Struktur - gruppiere gleiche IDs
+      const npcCounts = {}
+      encounter.npcIds.forEach(id => {
+        npcCounts[id] = (npcCounts[id] || 0) + 1
+      })
+      
+      Object.entries(npcCounts).forEach(([id, count]) => {
+        const template = templates.value.find(t => t.id === parseFloat(id))
+        if (template) {
+          for (let i = 0; i < count; i++) {
+            const nameSuffix = count > 1 ? ` ${i + 1}` : ''
+            npcsToAdd.push({
+              name: template.name + nameSuffix,
+              type: 'npc',
+              hp: template.hp?.max || template.hp || 10,
+              initiativeModifier: template.initiativeModifier,
+              armorIds: template.armorIds || [],
+              attributes: template.attributes,
+              talents: template.talents || [],
+              weaponInstances: template.weaponInstances || template.weapons || []
+            })
+          }
+        }
+      })
+    }
+    
+    return npcsToAdd
+  }
+
   // Getters
   const getTemplatesByCategory = (category) => {
     return templates.value.filter(t => t.category === category)
@@ -552,6 +606,7 @@ export const useCharacterStore = defineStore('character', () => {
     // Group Actions
     addPlayerGroup,
     setActiveGroup,
+    prepareEncounterForCombat,
     getActivePlayerTemplates,
     // Encounter Groups
     addEncounterGroup,
