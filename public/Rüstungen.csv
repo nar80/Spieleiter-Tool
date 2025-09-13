@@ -1,0 +1,27 @@
+Name,Bedeckte Körperstelle(n),RP
+Primitive Rüstungen ( Art Angabe),,
+Schweres Leder/Felle,"Arme, Körper, Beine",2
+Groxfelle/Kettenrüstung,"Arme, Körper, Beine",3
+Vollplatte,Alle,5
+Brenngeißel-Bestienleder,Körper,6
+Armaplastrüstungen ( Art Angabe),,
+Armaplasthelm,Kopf,2
+Armaplastumhang,"Arme, Körper, Beine",3
+Armaplastmantel,"Arme, Körper, Beine",3
+Armee-Armaplastrüstung,Alle,4
+Aramidrüstungen ( Art Angabe),,
+Aramidkapuze,Kopf,3
+Xeno-Aramid,"Arme, Körper, Beine",3
+Aramidkampfmantel,"Arme, Körper, Beine",4
+Aramidweste,Körper,4
+Plattenrüstungen( Art Angabe),,
+Plattenhelm,Kopf,4
+Leichte Sicherheits-Plattenrüstung,Alle,5
+Brustpanzer,Körper,6
+Gardisten-Plattenrüstung,Alle,6
+Andere Rüstungen ( Art Angabe),,
+Fortgeschrittene Helmsysteme,-,-
+Gepanzerter Bodysuit,"Arme, Körper, Beine",3
+Servorüstungen,,
+Leichte Servorüstung,Alle,7
+Servorüstung,Alle,8
