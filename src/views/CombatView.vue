@@ -560,44 +560,84 @@
               <div class="text-subtitle2 text-grey q-mb-sm">Werte</div>
               <div class="row no-wrap">
                 <div class="q-mr-sm">
-                  <div v-if="combatStore.currentCombatant.attributes?.KG" class="text-caption">
-                    <strong>KG:</strong> {{ combatStore.currentCombatant.attributes.KG }}
+                  <div
+                    v-if="combatStore.currentCombatant.attributes?.KG"
+                    class="text-caption"
+                  >
+                    <strong>KG:</strong>
+                    {{ combatStore.currentCombatant.attributes.KG }}
                   </div>
-                  <div v-if="combatStore.currentCombatant.attributes?.BF" class="text-caption">
-                    <strong>BF:</strong> {{ combatStore.currentCombatant.attributes.BF }}
+                  <div
+                    v-if="combatStore.currentCombatant.attributes?.BF"
+                    class="text-caption"
+                  >
+                    <strong>BF:</strong>
+                    {{ combatStore.currentCombatant.attributes.BF }}
                   </div>
-                  <div v-if="combatStore.currentCombatant.attributes?.ST" class="text-caption">
-                    <strong>ST:</strong> {{ combatStore.currentCombatant.attributes.ST }}
+                  <div
+                    v-if="combatStore.currentCombatant.attributes?.ST"
+                    class="text-caption"
+                  >
+                    <strong>ST:</strong>
+                    {{ combatStore.currentCombatant.attributes.ST }}
                   </div>
                 </div>
                 <div class="q-mr-sm">
-                  <div v-if="combatStore.currentCombatant.attributes?.WI" class="text-caption">
-                    <strong>WI:</strong> {{ combatStore.currentCombatant.attributes.WI }}
+                  <div
+                    v-if="combatStore.currentCombatant.attributes?.WI"
+                    class="text-caption"
+                  >
+                    <strong>WI:</strong>
+                    {{ combatStore.currentCombatant.attributes.WI }}
                   </div>
-                  <div v-if="combatStore.currentCombatant.attributes?.GE" class="text-caption">
-                    <strong>GE:</strong> {{ combatStore.currentCombatant.attributes.GE }}
+                  <div
+                    v-if="combatStore.currentCombatant.attributes?.GE"
+                    class="text-caption"
+                  >
+                    <strong>GE:</strong>
+                    {{ combatStore.currentCombatant.attributes.GE }}
                   </div>
-                  <div v-if="combatStore.currentCombatant.attributes?.IN" class="text-caption">
-                    <strong>IN:</strong> {{ combatStore.currentCombatant.attributes.IN }}
+                  <div
+                    v-if="combatStore.currentCombatant.attributes?.IN"
+                    class="text-caption"
+                  >
+                    <strong>IN:</strong>
+                    {{ combatStore.currentCombatant.attributes.IN }}
                   </div>
                 </div>
                 <div>
-                  <div v-if="combatStore.currentCombatant.attributes?.WA" class="text-caption">
-                    <strong>WA:</strong> {{ combatStore.currentCombatant.attributes.WA }}
+                  <div
+                    v-if="combatStore.currentCombatant.attributes?.WA"
+                    class="text-caption"
+                  >
+                    <strong>WA:</strong>
+                    {{ combatStore.currentCombatant.attributes.WA }}
                   </div>
-                  <div v-if="combatStore.currentCombatant.attributes?.WK" class="text-caption">
-                    <strong>WK:</strong> {{ combatStore.currentCombatant.attributes.WK }}
+                  <div
+                    v-if="combatStore.currentCombatant.attributes?.WK"
+                    class="text-caption"
+                  >
+                    <strong>WK:</strong>
+                    {{ combatStore.currentCombatant.attributes.WK }}
                   </div>
-                  <div v-if="combatStore.currentCombatant.attributes?.CH" class="text-caption">
-                    <strong>CH:</strong> {{ combatStore.currentCombatant.attributes.CH }}
+                  <div
+                    v-if="combatStore.currentCombatant.attributes?.CH"
+                    class="text-caption"
+                  >
+                    <strong>CH:</strong>
+                    {{ combatStore.currentCombatant.attributes.CH }}
                   </div>
                 </div>
               </div>
-              <div v-if="combatStore.currentCombatant.armor" class="text-caption q-mt-xs">
-                <strong>Rüstung:</strong> {{ combatStore.currentCombatant.armor }}
+              <div
+                v-if="combatStore.currentCombatant.armor"
+                class="text-caption q-mt-xs"
+              >
+                <strong>Rüstung:</strong>
+                {{ combatStore.currentCombatant.armor }}
               </div>
             </div>
-            
+
             <!-- Talente -->
             <div
               v-if="
@@ -606,8 +646,10 @@
               "
               class="col-12 col-md-7"
             >
-              <div class="text-subtitle2 text-grey q-mb-sm">Talente & Eigenschaften</div>
-              
+              <div class="text-subtitle2 text-grey q-mb-sm">
+                Talente & Eigenschaften
+              </div>
+
               <!-- Talent-Grid -->
               <div class="row q-col-gutter-xs">
                 <div
@@ -623,10 +665,13 @@
                     style="min-height: 40px"
                   >
                     <q-card-section class="q-pa-sm">
-                      <div class="text-weight-medium" style="font-size: 0.85rem">
+                      <div
+                        class="text-weight-medium"
+                        style="font-size: 0.85rem"
+                      >
                         {{ talent.display }}
                       </div>
-                      
+
                       <!-- Tooltip mit Kurzbeschreibung -->
                       <q-tooltip class="bg-purple" :delay="300">
                         {{ talent.shortDesc }}
@@ -635,7 +680,7 @@
                   </q-card>
                 </div>
               </div>
-              
+
               <!-- Falls mehr als 8 Talente -->
               <div
                 v-if="getCurrentCombatantTalents().length > 8"
@@ -645,115 +690,119 @@
               </div>
             </div>
           </div>
-          
+
           <!-- Waffen & Aktionen - Volle Breite -->
           <div class="row q-gutter-md">
             <div class="col-12">
-              <div class="text-subtitle2 text-grey q-mb-sm">Waffen & Aktionen</div>
-            <div
-              v-if="getCombatantWeapons(combatStore.currentCombatant).length"
-            >
+              <div class="text-subtitle2 text-grey q-mb-sm">
+                Waffen & Aktionen
+              </div>
               <div
-                v-for="(weapon, index) in getCombatantWeapons(
-                  combatStore.currentCombatant
-                )"
-                :key="weapon.instanceId || weapon.name + index"
-                class="q-mb-sm"
+                v-if="getCombatantWeapons(combatStore.currentCombatant).length"
               >
-                <div class="row items-center q-gutter-xs">
-                  <q-btn
-                    :color="
-                      weapon.isReloading
-                        ? 'grey'
-                        : weapon.mag > 0 && weapon.currentAmmo === 0
-                        ? 'orange'
-                        : 'primary'
-                    "
-                    :disable="
-                      weapon.isReloading ||
-                      (weapon.mag > 0 && weapon.currentAmmo === 0)
-                    "
-                    @click="performAttack(weapon, index)"
-                    no-caps
-                  >
-                    <div class="row items-center q-gutter-xs">
-                      <span>{{ weapon.name }}</span>
-                      <q-chip
-                        v-if="weapon.mag > 0"
-                        :color="weapon.currentAmmo > 0 ? 'green' : 'red'"
-                        text-color="white"
-                        dense
-                        size="sm"
-                      >
-                        {{ weapon.currentAmmo }}/{{ weapon.mag }}
-                      </q-chip>
-                      <q-chip
-                        v-if="weapon.isReloading"
-                        color="orange"
-                        text-color="white"
-                        dense
-                        size="sm"
-                      >
-                        Lädt ({{ weapon.reloadTimeLeft }})
-                      </q-chip>
-                    </div>
-                  </q-btn>
-
-                  <!-- Nachladen-Button -->
-                  <q-btn
-                    v-if="
-                      weapon.mag > 0 &&
-                      weapon.currentAmmo < weapon.mag &&
-                      !weapon.isReloading
-                    "
-                    flat
-                    round
-                    dense
-                    icon="refresh"
-                    size="sm"
-                    color="orange"
-                    @click="reloadWeapon(index)"
-                  >
-                    <q-tooltip
-                      >Nachladen ({{ weapon.reload }} Aktion{{
-                        weapon.reload > 1 ? "en" : ""
-                      }})</q-tooltip
+                <div
+                  v-for="(weapon, index) in getCombatantWeapons(
+                    combatStore.currentCombatant
+                  )"
+                  :key="weapon.instanceId || weapon.name + index"
+                  class="q-mb-sm"
+                >
+                  <div class="row items-center q-gutter-xs">
+                    <q-btn
+                      :color="
+                        weapon.isReloading
+                          ? 'grey'
+                          : weapon.mag > 0 && weapon.currentAmmo === 0
+                          ? 'orange'
+                          : 'primary'
+                      "
+                      :disable="
+                        weapon.isReloading ||
+                        (weapon.mag > 0 && weapon.currentAmmo === 0)
+                      "
+                      @click="performAttack(weapon, index)"
+                      no-caps
                     >
-                  </q-btn>
-                </div>
-                <div class="text-caption text-grey q-ml-sm">
-                  {{ weapon.damage }} | Pen: {{ weapon.pen || 0 }}
-                  <span v-if="weapon.range"> | Range: {{ weapon.range }}m</span>
-                  <span v-if="weapon.rof"> | RoF: {{ weapon.rof }}</span>
+                      <div class="row items-center q-gutter-xs">
+                        <span>{{ weapon.name }}</span>
+                        <q-chip
+                          v-if="weapon.mag > 0"
+                          :color="weapon.currentAmmo > 0 ? 'green' : 'red'"
+                          text-color="white"
+                          dense
+                          size="sm"
+                        >
+                          {{ weapon.currentAmmo }}/{{ weapon.mag }}
+                        </q-chip>
+                        <q-chip
+                          v-if="weapon.isReloading"
+                          color="orange"
+                          text-color="white"
+                          dense
+                          size="sm"
+                        >
+                          Lädt ({{ weapon.reloadTimeLeft }})
+                        </q-chip>
+                      </div>
+                    </q-btn>
+
+                    <!-- Nachladen-Button -->
+                    <q-btn
+                      v-if="
+                        weapon.mag > 0 &&
+                        weapon.currentAmmo < weapon.mag &&
+                        !weapon.isReloading
+                      "
+                      flat
+                      round
+                      dense
+                      icon="refresh"
+                      size="sm"
+                      color="orange"
+                      @click="reloadWeapon(index)"
+                    >
+                      <q-tooltip
+                        >Nachladen ({{ weapon.reload }} Aktion{{
+                          weapon.reload > 1 ? "en" : ""
+                        }})</q-tooltip
+                      >
+                    </q-btn>
+                  </div>
+                  <div class="text-caption text-grey q-ml-sm">
+                    {{ weapon.damage }} | Pen: {{ weapon.pen || 0 }}
+                    <span v-if="weapon.range">
+                      | Range: {{ weapon.range }}m</span
+                    >
+                    <span v-if="weapon.rof"> | RoF: {{ weapon.rof }}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div v-else class="text-grey">Keine Waffen ausgerüstet</div>
+              <div v-else class="text-grey">Keine Waffen ausgerüstet</div>
 
-            <!-- Schnellaktionen -->
-            <div class="q-mt-sm">
-              <q-btn
-                flat
-                dense
-                icon="casino"
-                label="Würfeln"
-                @click="openDiceDialog"
-              />
-              <q-btn
-                flat
-                dense
-                icon="shield"
-                label="Verteidigen"
-                color="blue"
-              />
-              <q-btn
-                flat
-                dense
-                icon="directions_run"
-                label="Bewegen"
-                color="orange"
-              />
-            </div>
+              <!-- Schnellaktionen -->
+              <div class="q-mt-sm">
+                <q-btn
+                  flat
+                  dense
+                  icon="casino"
+                  label="Würfeln"
+                  @click="openDiceDialog"
+                />
+                <q-btn
+                  flat
+                  dense
+                  icon="shield"
+                  label="Verteidigen"
+                  color="blue"
+                />
+                <q-btn
+                  flat
+                  dense
+                  icon="directions_run"
+                  label="Bewegen"
+                  color="orange"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -1020,7 +1069,15 @@
                 Basis: <strong>{{ attackSkill }}%</strong>
               </div>
               <div v-if="attackModifiers.aim" class="text-green">
-                Zielen: +10
+                Zielen: +{{
+                  currentWeapon?.special?.includes("Accurate") ? 20 : 10
+                }}
+                <span
+                  v-if="currentWeapon?.special?.includes('Accurate')"
+                  class="text-caption"
+                >
+                  (Accurate)</span
+                >
               </div>
               <div v-if="attackModifiers.shortRange" class="text-green">
                 Kurze Reichweite: +10
@@ -1837,7 +1894,7 @@ const availableFireModes = ref([]);
 
 // Debug watcher für Feuermodus (kann später entfernt werden)
 watch(selectedFireMode, (newVal, oldVal) => {
-  console.log("Fire mode changed from", oldVal, "to", newVal);
+  // console.log("Fire mode changed from", oldVal, "to", newVal);
 });
 
 // Dice System
@@ -1955,7 +2012,7 @@ const effectiveArmorForHitZone = computed(() => {
     );
     armor = armorData.rp;
   }
-  
+
   // Talent-Bonus hinzufügen (z.B. Das Fleisch ist schwach)
   const talentBonus = talentStore.calculateEffectiveArmor(
     0,
@@ -1971,7 +2028,7 @@ const toughnessBonus = computed(() => {
   if (!defendingCombatant.value) return 0;
   // WiB ist die 10er Stelle vom WI (Widerstand) Attribut
   const wi = defendingCombatant.value?.attributes?.WI || 30;
-  
+
   // Mit Talenten modifiziert (z.B. Unnatürliche Widerstandskraft)
   return talentStore.calculateEffectiveToughness(
     wi,
@@ -2018,7 +2075,13 @@ const calculatedHitChance = computed(() => {
   let totalMod = 0;
 
   // Häufige Modifikatoren
-  if (attackModifiers.aim) totalMod += 10;
+  if (attackModifiers.aim) {
+    totalMod += 10;
+    // Accurate-Waffen erhalten zusätzlich +10 beim Zielen
+    if (currentWeapon.value?.special?.includes("Accurate")) {
+      totalMod += 10;
+    }
+  }
   if (attackModifiers.shortRange) totalMod += 10;
   if (attackModifiers.targetProne) totalMod -= 10;
   if (attackModifiers.running) totalMod -= 20;
@@ -2415,7 +2478,7 @@ const getHpColor = (combatant) => {
 
 // Template Methods
 const addTemplateToCombat = (template) => {
-  console.log(template);
+  // console.log(template);
   combatStore.addCombatant({
     name: template.name,
     type: template.type,
@@ -2580,7 +2643,7 @@ const performAttack = (weapon, index) => {
   availableFireModes.value = [];
 
   // Debug-Log für Feuermodi
-  console.log("Weapon RoF:", weapon.rof, "Parsed modes:", modes);
+  // console.log("Weapon RoF:", weapon.rof, "Parsed modes:", modes);
 
   if (modes.single) {
     availableFireModes.value.push({ label: "Einzel", value: "single" });
@@ -2610,13 +2673,6 @@ const performAttack = (weapon, index) => {
   } else {
     selectedFireMode.value = "single";
   }
-
-  console.log(
-    "Available fire modes:",
-    availableFireModes.value,
-    "Selected:",
-    selectedFireMode.value
-  );
 
   // Setze Skill basierend auf Waffe
   const attacker = combatStore.currentCombatant;
@@ -2713,10 +2769,11 @@ const rollAttack = () => {
   if (attackHit.value) {
     // Berechne Anzahl der Treffer basierend auf Feuermodus und Erfolgsgraden
     let numHits = 1; // Mindestens 1 Treffer
+    let degreesOfSuccess = 0;
 
     if (systemStore.selectedSystem === "wh40k") {
       const margin = calculatedHitChance.value - roll; // Erfolgsgrade
-      const degreesOfSuccess = Math.floor(margin / 10);
+      degreesOfSuccess = Math.max(0, Math.floor(margin / 10)); // Mindestens 0
 
       if (selectedFireMode.value === "burst") {
         // Salve: Alle 2 Erfolgsgrade (20 Punkte) = 1 zusätzlicher Treffer
@@ -2766,6 +2823,8 @@ const rollAttack = () => {
         originalRoll: roll, // Der ursprüngliche Angriffswurf
         reversedRoll: reversedRoll, // Der vertauschte Wurf
         location: location,
+        degreesOfSuccess: degreesOfSuccess, // Erfolgsgrade für Accurate-Berechnung
+        wasAimed: attackModifiers.aim, // Speichere ob gezielt wurde
         damage: null,
         righteousFuryRoll: null,
         righteousFuryHit: false,
@@ -2782,6 +2841,28 @@ const rollDamageForHit = (index) => {
 
   // Prüfe ob Waffe Tearing hat
   const hasTearing = currentWeapon.value.special?.includes("Tearing") || false;
+
+  // Berechne Accurate-Bonus (nur bei Einzelschuss + Zielen)
+  let accurateBonusDice = 0;
+  if (
+    currentWeapon.value.special?.includes("Accurate") &&
+    hits.value[index].wasAimed &&
+    selectedFireMode.value === "single"
+  ) {
+    // Je 2 Erfolgsgrade = 1 zusätzlicher W10, max 2W10
+    const degreesOfSuccess = hits.value[index].degreesOfSuccess || 0;
+    accurateBonusDice = Math.min(Math.floor(degreesOfSuccess / 2), 2);
+
+    // Debug-Ausgabe
+    console.log("Accurate Debug:", {
+      degreesOfSuccess,
+      accurateBonusDice,
+      weapon: currentWeapon.value.name,
+      wasAimed: hits.value[index].wasAimed,
+      fireMode: selectedFireMode.value,
+      hit: hits.value[index],
+    });
+  }
 
   // Berechne Stärkebonus für Nahkampfwaffen
   let strengthBonus = 0;
@@ -2800,7 +2881,7 @@ const rollDamageForHit = (index) => {
     }
   }
 
-  const damage = weaponStore.rollDamage(
+  let damage = weaponStore.rollDamage(
     currentWeapon.value.damage,
     hasTearing,
     strengthBonus,
@@ -2811,6 +2892,19 @@ const rollDamageForHit = (index) => {
   let breakdown = `${damage.rolls.join("+")}${damage.modifier >= 0 ? "+" : ""}${
     damage.modifier
   }`;
+
+  // Füge Accurate-Bonus hinzu
+  if (accurateBonusDice > 0) {
+    const bonusDamage = [];
+    for (let i = 0; i < accurateBonusDice; i++) {
+      const roll = Math.floor(Math.random() * 10) + 1;
+      bonusDamage.push(roll);
+      damage.total += roll;
+    }
+    damage.accurateBonus = bonusDamage;
+    breakdown += ` + Accurate[${bonusDamage.join("+")}]`;
+  }
+
   if (damage.strengthBonusApplied > 0) {
     breakdown += ` (inkl. ST-Bonus: +${damage.strengthBonusApplied})`;
   }
@@ -2825,7 +2919,7 @@ const rollDamageForHit = (index) => {
 
   // Automatisch Righteous Fury prüfen wenn kritisch
   if (damage.hasCritical) {
-    rollRighteousFury(index);
+    confirmRighteousFuryForHit(index);
   }
 };
 
@@ -3051,7 +3145,7 @@ const calculateFinalDamage = () => {
     );
     armor = armorData.rp;
   }
-  
+
   // Talent-Bonus hinzufügen (z.B. Das Fleisch ist schwach)
   const talentBonus = talentStore.calculateEffectiveArmor(
     0,

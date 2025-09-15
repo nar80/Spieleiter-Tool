@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia'
 import { ref, computed } from 'vue'
+import { useTalentStore } from './talentStore'
 
 export const useCombatStore = defineStore('combat', () => {
   // State
@@ -80,18 +81,34 @@ export const useCombatStore = defineStore('combat', () => {
   const rollInitiative = (combatantId, diceRoll) => {
     const combatant = combatants.value.find(c => c.id === combatantId)
     if (combatant) {
-      combatant.initiative = diceRoll + (combatant.initiativeModifier || 0)
+      // Berechne GE-Bonus (Gewandtheit / 10)
+      const geBonus = combatant.attributes?.GE ? Math.floor(combatant.attributes.GE / 10) : 0
+      
+      // Talent-Boni hinzufügen (z.B. Lightning Reflexes)
+      const talentStore = useTalentStore()
+      const talentBonus = talentStore.calculateInitiativeBonus(combatant.talents || [])
+      
+      combatant.initiative = diceRoll + geBonus + talentBonus
     }
   }
   
   const rollAllInitiatives = (diceType = 'd10') => {
+    const talentStore = useTalentStore()
+    
     combatants.value.forEach(combatant => {
       if (combatant.type === 'npc') {
         // Würfle automatisch für NPCs
         const roll = diceType === 'd20' ? 
           Math.floor(Math.random() * 20) + 1 :
           Math.floor(Math.random() * 10) + 1
-        combatant.initiative = roll + (combatant.initiativeModifier || 0)
+        
+        // Berechne GE-Bonus (Gewandtheit / 10)
+        const geBonus = combatant.attributes?.GE ? Math.floor(combatant.attributes.GE / 10) : 0
+        
+        // Talent-Boni hinzufügen (z.B. Lightning Reflexes)
+        const talentBonus = talentStore.calculateInitiativeBonus(combatant.talents || [])
+        
+        combatant.initiative = roll + geBonus + talentBonus
       }
     })
   }

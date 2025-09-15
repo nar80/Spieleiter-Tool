@@ -305,7 +305,7 @@ export const useWeaponStore = defineStore('weapon', () => {
       special: [],
       skill: 'WS',
       system: 'wh40k',
-      requirements: ["servitor"], // Nur Templates mit "servitor" Tag
+      requirements: ["servitor", "maschine"], // Nur Templates mit "servitor" Tag
       restrictions: ['tier', 'dämon'] // Servitoren können schwere Waffen haben
     },
     {
@@ -441,6 +441,34 @@ export const useWeaponStore = defineStore('weapon', () => {
       system: 'wh40k',
       restrictions: ['tier', 'dämon', 'servitor', 'maschine']
     },
+    {
+      id: 'eldarsword',
+      name: 'Eldar Energieschwert',
+      type: 'melee',
+      damage: '1d10+4',
+      pen: 8,
+      rof: '-/-/-',
+      mag: 0,
+      reload: 0,
+      special: ['Balanced', 'Energiefield'],
+      skill: 'WS',
+      system: 'wh40k',
+      restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
+    {
+      id: 'shuriken',
+      name: 'Shurikenkatapult',
+      type: 'ranged',
+      damage: '1d10+4',
+      pen: 4,
+      rof: 'E/3/10',
+      mag: 100,
+      reload: 2,
+      special: ['Reliable'],
+      skill: 'BS',
+      system: 'wh40k',
+      restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
     
     // Erweiterte Waffen aus Into the Storm
     {
@@ -547,6 +575,36 @@ export const useWeaponStore = defineStore('weapon', () => {
       skill: 'BS',
       system: 'wh40k',
       restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
+    {
+      id: 'mars_melter',
+      name: 'Melter (Mars)',
+      type: 'ranged',
+      range: 20,
+      damage: '2d10+8',
+      pen: 13,
+      rof: 'E/-/-',
+      mag: 5,
+      reload: 2,
+      special: ['Melta'],
+      skill: 'BS',
+      system: 'wh40k',
+      restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
+    {
+      id: 'mars_multimelter',
+      name: 'Multi-Melter (Mars)',
+      type: 'ranged',
+      range: 60,
+      damage: '4d10+5',
+      pen: 13,
+      rof: 'E/-/-',
+      mag: 10,
+      reload: 2,
+      special: ['Melta', 'Explosiv(1)'],
+      skill: 'BS',
+      system: 'wh40k',
+      restrictions: ['tier', 'dämon']
     },
     {
       id: 'beamer_melter',
@@ -876,6 +934,21 @@ export const useWeaponStore = defineStore('weapon', () => {
       skill: 'WS',
       system: 'wh40k',
       restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
+    {
+      id: 'double_plasma',
+      name: 'Zwillings-Plasma',
+      type: 'range',
+      damage: '2d10+3',
+      pen: 5,
+      range: 80,
+      rof: 'E/2/-',
+      mag: 20,
+      reload: 2,
+      special: ['Shocking'],
+      skill: 'BS',
+      system: 'wh40k',
+      require: ['maschine']
     }
   ]
   

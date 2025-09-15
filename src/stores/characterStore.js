@@ -28,7 +28,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: template.category || 'default', // 'player', 'monster', 'boss', etc
       tags: template.tags || [], // Neue Tags für bessere Kategorisierung
       hp: hpObject,
-      initiativeModifier: template.initiativeModifier || 0,
       armorIds: template.armorIds || [], // List of equipped armor IDs
       talents: template.talents || [],
       attributes: template.attributes || {},
@@ -147,7 +146,6 @@ export const useCharacterStore = defineStore('character', () => {
               name: template.name + nameSuffix,
               type: 'npc',
               hp: template.hp?.max || template.hp || 10,
-              initiativeModifier: template.initiativeModifier,
               armorIds: template.armorIds || [],
               attributes: template.attributes,
               talents: template.talents || [],
@@ -172,7 +170,6 @@ export const useCharacterStore = defineStore('character', () => {
               name: template.name + nameSuffix,
               type: 'npc',
               hp: template.hp?.max || template.hp || 10,
-              initiativeModifier: template.initiativeModifier,
               armorIds: template.armorIds || [],
               attributes: template.attributes,
               talents: template.talents || [],
@@ -264,7 +261,7 @@ export const useCharacterStore = defineStore('character', () => {
       document.body.removeChild(a)
       URL.revokeObjectURL(url)
       
-      console.log('Templates exportiert nach Downloads-Ordner')
+      // console.log('Templates exportiert nach Downloads-Ordner')
       return { success: true, data: exportData }
     } catch (error) {
       console.error('Export error:', error)
@@ -382,7 +379,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: 'minion',
       tags: ['Mensch', 'Verbrecher', 'Pirat'],
       hp: 9,
-      initiativeModifier: 2,
       toughness: 30,
       system: 'wh40k',
       armorIds: ['armor_10'], // Xeno-Aramid
@@ -403,7 +399,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: 'elite',
       tags: ['Mensch', 'Verbrecher', 'Pirat', 'Anführer'],
       hp: 14,
-      initiativeModifier: 4,
       toughness: 35,
       system: 'wh40k',
       armorIds: ['armor_11', 'armor_9'], // Aramidkampfmantel + Aramidkapuze
@@ -425,7 +420,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: 'minion',
       tags: ['Mensch', 'Chaos', 'Kultist'],
       hp: 8,
-      initiativeModifier: 0,
       toughness: 30,
       system: 'wh40k',
       armorIds: ['armor_1'], // Schweres Leder/Felle
@@ -446,7 +440,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: 'elite',
       tags: ['Mensch', 'Chaos', 'Kultist', 'Anführer'],
       hp: 12,
-      initiativeModifier: 2,
       toughness: 32,
       system: 'wh40k',
       armorIds: ['armor_6'], // Armaplastumhang
@@ -467,7 +460,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: 'boss',
       tags: ['Space Marine', 'Chaos', 'Boss'],
       hp: 20,
-      initiativeModifier: 5,
       toughness: 45,
       system: 'wh40k',
       armorIds: ['armor_16'], // Gardisten-Plattenrüstung (beschädigt)
@@ -489,7 +481,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: 'minion',
       tags: ['Dämon', 'Warp', 'Geist'],
       hp: 6,
-      initiativeModifier: 3,
       toughness: 25,
       system: 'wh40k',
       armorIds: [], // Keine Rüstung
@@ -509,7 +500,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: 'elite',
       tags: ['Mensch', 'Chaos', 'Dämon', 'Besessen'],
       hp: 13,
-      initiativeModifier: 3,
       toughness: 38,
       system: 'wh40k',
       armorIds: ['armor_1'], // Zerrissene Kleidung/Felle
@@ -530,7 +520,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: 'elite',
       tags: ['Mensch', 'Chaos', 'Nurgle', 'Kultist'],
       hp: 15,
-      initiativeModifier: -2,
       toughness: 40,
       system: 'wh40k',
       armorIds: ['armor_2'], // Groxfelle/Kettenrüstung
@@ -551,7 +540,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: 'boss',
       tags: ['Mensch', 'Psioniker', 'Chaos', 'Hexe'],
       hp: 11,
-      initiativeModifier: 4,
       toughness: 30,
       system: 'wh40k',
       armorIds: ['armor_6'], // Armaplastumhang
@@ -572,7 +560,6 @@ export const useCharacterStore = defineStore('character', () => {
       category: 'elite',
       tags: ['Mensch', 'Chaos', 'Khorne', 'Berserker'],
       hp: 12,
-      initiativeModifier: 5,
       toughness: 32,
       system: 'wh40k',
       armorIds: ['armor_2'], // Groxfelle/Kettenrüstung

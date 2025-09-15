@@ -1,0 +1,2767 @@
+{
+  "version": "1.1",
+  "exportDate": "2025-09-14T09:05:38.114Z",
+  "templates": [
+    {
+      "id": 1757595654051.5427,
+      "name": "Pirat",
+      "type": "npc",
+      "category": "minion",
+      "hp": {
+        "current": 9,
+        "max": 9
+      },
+      "initiativeModifier": 2,
+      "armorIds": [
+        "armor_10"
+      ],
+      "toughness": 30,
+      "attributes": {
+        "KG": 30,
+        "BF": 30,
+        "ST": 30,
+        "WI": 30,
+        "GE": 35,
+        "IN": 25,
+        "WA": 30,
+        "WK": 25,
+        "CH": 25
+      },
+      "weaponInstances": [
+        {
+          "id": "las_pistol",
+          "name": "Laspistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+2",
+          "pen": 0,
+          "rof": "E/2/-",
+          "mag": 30,
+          "reload": 0.5,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k"
+        },
+        {
+          "name": "Monoschwert",
+          "damage": "1d10+2",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0
+        }
+      ],
+      "skills": {},
+      "notes": "Void-Born Pirat, Teil einer Piraten-Crew",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595654052.3123,
+      "name": "Piraten-Kapitän",
+      "type": "npc",
+      "category": "elite",
+      "hp": {
+        "current": 14,
+        "max": 14
+      },
+      "initiativeModifier": 4,
+      "armorIds": [
+        "armor_11",
+        "armor_9"
+      ],
+      "toughness": 35,
+      "attributes": {
+        "KG": 40,
+        "BF": 38,
+        "ST": 35,
+        "WI": 35,
+        "GE": 40,
+        "IN": 30,
+        "WA": 35,
+        "WK": 35,
+        "CH": 40
+      },
+      "weaponInstances": [
+        {
+          "id": "bolt_pistol",
+          "name": "Boltpistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+5",
+          "pen": 4,
+          "rof": "E/2/-",
+          "mag": 8,
+          "reload": 1,
+          "special": [
+            "Tearing"
+          ],
+          "skill": "BS",
+          "system": "wh40k"
+        },
+        {
+          "id": "power_sword",
+          "name": "Energieschwert",
+          "type": "melee",
+          "damage": "1d10+5",
+          "pen": 5,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Power Field",
+            "Balanced"
+          ],
+          "skill": "WS",
+          "system": "wh40k"
+        }
+      ],
+      "skills": {},
+      "notes": "Erfahrener Raumpiraten-Anführer",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595654052.9504,
+      "name": "Chaos Kultist",
+      "type": "npc",
+      "category": "minion",
+      "hp": {
+        "current": 8,
+        "max": 8
+      },
+      "initiativeModifier": 0,
+      "armorIds": [
+        "armor_1"
+      ],
+      "toughness": 30,
+      "attributes": {
+        "KG": 25,
+        "BF": 25,
+        "ST": 30,
+        "WI": 30,
+        "GE": 30,
+        "IN": 20,
+        "WA": 25,
+        "WK": 20,
+        "CH": 20
+      },
+      "weaponInstances": [
+        {
+          "id": "autopistol",
+          "name": "Autopistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+2",
+          "pen": 0,
+          "rof": "E/6/-",
+          "mag": 18,
+          "reload": 1,
+          "skill": "BS",
+          "system": "wh40k"
+        },
+        {
+          "id": "knife",
+          "name": "Messer",
+          "type": "melee",
+          "damage": "1d5",
+          "pen": 0,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Primitive(7)"
+          ],
+          "skill": "WS",
+          "system": "wh40k"
+        }
+      ],
+      "skills": {},
+      "notes": "Wahnsinniger Anhänger der dunklen Götter",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595654052.655,
+      "name": "Chaos Prediger",
+      "type": "npc",
+      "category": "elite",
+      "hp": {
+        "current": 12,
+        "max": 12
+      },
+      "initiativeModifier": 2,
+      "armorIds": [
+        "armor_6"
+      ],
+      "toughness": 32,
+      "attributes": {
+        "KG": 30,
+        "BF": 28,
+        "ST": 30,
+        "WI": 32,
+        "GE": 30,
+        "IN": 35,
+        "WA": 30,
+        "WK": 40,
+        "CH": 45
+      },
+      "weaponInstances": [
+        {
+          "id": "stub_revolver",
+          "name": "Stub Revolver",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+3",
+          "pen": 0,
+          "rof": "E/-/-",
+          "mag": 6,
+          "reload": 2,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k"
+        },
+        {
+          "id": "plague_knife",
+          "name": "Seuchendolch",
+          "type": "melee",
+          "damage": "1d5+3",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Toxic",
+            "Corrupt"
+          ],
+          "skill": "WS",
+          "system": "wh40k"
+        }
+      ],
+      "skills": {},
+      "notes": "Charismatischer Anführer eines Chaos-Kults",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595654052.6265,
+      "name": "Chaos Space Marine (Verwundet)",
+      "type": "npc",
+      "category": "boss",
+      "hp": {
+        "current": 20,
+        "max": 20
+      },
+      "initiativeModifier": 5,
+      "armorIds": [
+        "armor_16"
+      ],
+      "toughness": 45,
+      "attributes": {
+        "KG": 45,
+        "BF": 40,
+        "ST": 50,
+        "WI": 45,
+        "GE": 35,
+        "IN": 35,
+        "WA": 35,
+        "WK": 40,
+        "CH": 30
+      },
+      "weaponInstances": [
+        {
+          "id": "bolter",
+          "name": "Bolter",
+          "type": "ranged",
+          "range": 100,
+          "damage": "1d10+5",
+          "pen": 4,
+          "rof": "E/3/-",
+          "mag": 24,
+          "reload": 1,
+          "special": [
+            "Tearing"
+          ],
+          "skill": "BS",
+          "system": "wh40k"
+        },
+        {
+          "id": "chainsword",
+          "name": "Kettenschwert",
+          "type": "melee",
+          "damage": "1d10+2",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Tearing",
+            "Balanced"
+          ],
+          "skill": "WS",
+          "system": "wh40k"
+        }
+      ],
+      "skills": {},
+      "notes": "Schwerverw undeter Chaos Marine - immer noch tödlich",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595654052.7644,
+      "name": "Kleiner Warpgeist",
+      "type": "npc",
+      "category": "minion",
+      "hp": {
+        "current": 6,
+        "max": 6
+      },
+      "initiativeModifier": 3,
+      "armorIds": [],
+      "toughness": 25,
+      "attributes": {
+        "KG": 30,
+        "BF": 0,
+        "ST": 20,
+        "WI": 25,
+        "GE": 40,
+        "IN": 15,
+        "WA": 30,
+        "WK": 25,
+        "CH": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "natural_claws",
+          "name": "Klauen",
+          "type": "melee",
+          "damage": "1d10+2",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Primitive"
+          ],
+          "skill": "WS",
+          "system": "wh40k"
+        }
+      ],
+      "skills": {},
+      "notes": "Schwacher Dämon aus dem Warp",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595654052.9365,
+      "name": "Besessener Kultist",
+      "type": "npc",
+      "category": "elite",
+      "hp": {
+        "current": 13,
+        "max": 13
+      },
+      "initiativeModifier": 3,
+      "armorIds": [
+        "armor_1"
+      ],
+      "toughness": 38,
+      "attributes": {
+        "KG": 38,
+        "BF": 20,
+        "ST": 40,
+        "WI": 38,
+        "GE": 35,
+        "IN": 15,
+        "WA": 25,
+        "WK": 30,
+        "CH": 5
+      },
+      "weaponInstances": [
+        {
+          "id": "natural_claws",
+          "name": "Klauen",
+          "type": "melee",
+          "damage": "1d10+2",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Primitive"
+          ],
+          "skill": "WS",
+          "system": "wh40k"
+        },
+        {
+          "id": "natural_bite",
+          "name": "Biss",
+          "type": "melee",
+          "damage": "1d10+3",
+          "pen": 3,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Primitive"
+          ],
+          "skill": "WS",
+          "system": "wh40k"
+        }
+      ],
+      "skills": {},
+      "notes": "Von einem Dämon besessener Kultist",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595654052.6765,
+      "name": "Seuchenverehrer",
+      "type": "npc",
+      "category": "elite",
+      "hp": {
+        "current": 15,
+        "max": 15
+      },
+      "initiativeModifier": -2,
+      "armorIds": [
+        "armor_2"
+      ],
+      "toughness": 40,
+      "attributes": {
+        "KG": 35,
+        "BF": 25,
+        "ST": 35,
+        "WI": 40,
+        "GE": 20,
+        "IN": 25,
+        "WA": 25,
+        "WK": 35,
+        "CH": 15
+      },
+      "weaponInstances": [
+        {
+          "id": "shotgun",
+          "name": "Schrotflinte",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+4",
+          "pen": 0,
+          "rof": "E/2/-",
+          "mag": 8,
+          "reload": 2,
+          "special": [
+            "Scatter"
+          ],
+          "skill": "BS",
+          "system": "wh40k"
+        },
+        {
+          "id": "plague_knife",
+          "name": "Seuchendolch",
+          "type": "melee",
+          "damage": "1d5+3",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Toxic",
+            "Corrupt"
+          ],
+          "skill": "WS",
+          "system": "wh40k"
+        }
+      ],
+      "skills": {},
+      "notes": "Nurgle-Anhänger, unnatürlich zäh",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595654053.9966,
+      "name": "Warp-Hexe",
+      "type": "npc",
+      "category": "boss",
+      "hp": {
+        "current": 11,
+        "max": 11
+      },
+      "initiativeModifier": 4,
+      "armorIds": [
+        "armor_6"
+      ],
+      "toughness": 30,
+      "attributes": {
+        "KG": 25,
+        "BF": 30,
+        "ST": 25,
+        "WI": 30,
+        "GE": 35,
+        "IN": 40,
+        "WA": 35,
+        "WK": 45,
+        "CH": 35
+      },
+      "weaponInstances": [
+        {
+          "id": "las_pistol",
+          "name": "Laspistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+2",
+          "pen": 0,
+          "rof": "E/2/-",
+          "mag": 30,
+          "reload": 0.5,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k"
+        },
+        {
+          "name": "Stab",
+          "damage": "1d10",
+          "pen": 0,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0
+        }
+      ],
+      "skills": {},
+      "notes": "Psioniker mit Warp-Kräften (Homebrew Psikräfte erforderlich)",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595654053.2615,
+      "name": "Blutkultist-Berserker",
+      "type": "npc",
+      "category": "elite",
+      "hp": {
+        "current": 12,
+        "max": 12
+      },
+      "initiativeModifier": 5,
+      "armorIds": [
+        "armor_2"
+      ],
+      "toughness": 32,
+      "attributes": {
+        "KG": 42,
+        "BF": 20,
+        "ST": 38,
+        "WI": 32,
+        "GE": 38,
+        "IN": 20,
+        "WA": 25,
+        "WK": 25,
+        "CH": 20
+      },
+      "weaponInstances": [
+        {
+          "id": "chainaxe",
+          "name": "Kettenaxt",
+          "type": "melee",
+          "damage": "1d10+3",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Tearing",
+            "Unbalanced"
+          ],
+          "skill": "WS",
+          "system": "wh40k"
+        },
+        {
+          "id": "chainaxe",
+          "name": "Kettenaxt",
+          "type": "melee",
+          "damage": "1d10+3",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Tearing",
+            "Unbalanced"
+          ],
+          "skill": "WS",
+          "system": "wh40k"
+        }
+      ],
+      "skills": {},
+      "notes": "Khorne-Anhänger, kämpft mit zwei Waffen",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595685220.4858,
+      "name": "Kultist",
+      "type": "npc",
+      "category": "minion",
+      "hp": 8,
+      "initiativeModifier": 0,
+      "armorIds": [],
+      "toughness": 30,
+      "attributes": {},
+      "weaponInstances": [
+        {
+          "id": "hunting_rifle",
+          "name": "Scharfschützengewehr",
+          "type": "ranged",
+          "range": 150,
+          "damage": "1d10+4",
+          "pen": 3,
+          "rof": "E/-/-",
+          "mag": 5,
+          "reload": 1,
+          "special": [
+            "Accurate"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757588828119.7876
+        },
+        {
+          "id": "lasgun",
+          "name": "Lasgewehr",
+          "type": "ranged",
+          "range": 100,
+          "damage": "1d10+3",
+          "pen": 0,
+          "rof": "E/3/-",
+          "mag": 60,
+          "reload": 1,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757588831199.8289
+        },
+        {
+          "id": "lasgun",
+          "name": "Lasgewehr",
+          "type": "ranged",
+          "range": 100,
+          "damage": "1d10+3",
+          "pen": 0,
+          "rof": "E/3/-",
+          "mag": 60,
+          "reload": 1,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757588839527.6387
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k",
+      "tags": [],
+      "talents": [
+        {
+          "id": "swift_attack",
+          "level": 1
+        },
+        {
+          "id": "lightning_attack",
+          "level": 1
+        },
+        {
+          "id": "two_weapon_wielder",
+          "level": 1
+        },
+        {
+          "id": "true_grit",
+          "level": 1
+        },
+        {
+          "id": "hardy",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": 1757595685220.6045,
+      "name": "Soldat",
+      "type": "npc",
+      "category": "elite",
+      "hp": 10,
+      "initiativeModifier": 2,
+      "armorIds": [
+        "armor_4"
+      ],
+      "toughness": 30,
+      "attributes": {
+        "KG": 45,
+        "BF": 50,
+        "ST": 35,
+        "WI": 65,
+        "GE": 30,
+        "IN": 30,
+        "WA": 30,
+        "WK": 40,
+        "CH": 30,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "bolter",
+          "name": "Bolter",
+          "type": "ranged",
+          "range": 100,
+          "damage": "1d10+5",
+          "pen": 4,
+          "rof": "E/3/-",
+          "mag": 24,
+          "reload": 1,
+          "special": [
+            "Tearing"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757589188207.3691
+        },
+        {
+          "id": "bolter",
+          "name": "Bolter",
+          "type": "ranged",
+          "range": 100,
+          "damage": "1d10+5",
+          "pen": 4,
+          "rof": "E/3/-",
+          "mag": 24,
+          "reload": 1,
+          "special": [
+            "Tearing"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757589196518.6062
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595685220.0078,
+      "name": "Gregori(Tobi)",
+      "type": "player",
+      "category": "minion",
+      "hp": {
+        "current": 14,
+        "max": 14
+      },
+      "initiativeModifier": 0,
+      "armorIds": [
+        "armor_14"
+      ],
+      "toughness": 30,
+      "attributes": {
+        "KG": 48,
+        "BF": 45,
+        "ST": 35,
+        "WI": 40,
+        "GE": 30,
+        "IN": 30,
+        "WA": 30,
+        "WK": 30,
+        "CH": 30,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "bolt_pistol",
+          "name": "Boltpistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+5",
+          "pen": 4,
+          "rof": "E/2/-",
+          "mag": 8,
+          "reload": 1,
+          "special": [
+            "Tearing"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757591165433.0696
+        },
+        {
+          "id": "bolt_pistol",
+          "name": "Boltpistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+5",
+          "pen": 4,
+          "rof": "E/2/-",
+          "mag": 8,
+          "reload": 1,
+          "special": [
+            "Tearing"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757591167971.248
+        },
+        {
+          "id": "las_pistol",
+          "name": "Laspistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+2",
+          "pen": 0,
+          "rof": "E/2/-",
+          "mag": 30,
+          "reload": 0.5,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757591199625.8328
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595685220.9275,
+      "name": "Mojas(Rene)",
+      "type": "player",
+      "category": "minion",
+      "hp": {
+        "current": 12,
+        "max": 12
+      },
+      "initiativeModifier": 0,
+      "armorIds": [
+        "armor_10",
+        "armor_9"
+      ],
+      "toughness": 30,
+      "attributes": {
+        "KG": 30,
+        "BF": 30,
+        "ST": 30,
+        "WI": 30,
+        "GE": 30,
+        "IN": 30,
+        "WA": 30,
+        "WK": 30,
+        "CH": 30,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "steel_viper",
+          "name": "Stahlviper",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+3",
+          "pen": 7,
+          "rof": "E/-/-",
+          "mag": 8,
+          "reload": 1,
+          "special": [
+            "Toxic",
+            "Tearing"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757591255447.5906
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595685220.4658,
+      "name": "Vincent(Andi)",
+      "type": "player",
+      "category": "minion",
+      "hp": 10,
+      "initiativeModifier": 0,
+      "armorIds": [
+        "armor_2"
+      ],
+      "toughness": 30,
+      "attributes": {
+        "KG": 30,
+        "BF": 30,
+        "ST": 30,
+        "WI": 30,
+        "GE": 30,
+        "IN": 30,
+        "WA": 30,
+        "WK": 30,
+        "CH": 30,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "flamer_mezoa",
+          "name": "Flammenwerfer(Mezoa++)",
+          "type": "ranged",
+          "range": 20,
+          "damage": "1d10+4",
+          "pen": 2,
+          "rof": "E/-/-",
+          "mag": 6,
+          "reload": 2,
+          "special": [
+            "Flame",
+            "Spray",
+            "focused"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757596729067.6333
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595685220.37,
+      "name": "Ignix Nox(Hannes)",
+      "type": "player",
+      "category": "minion",
+      "hp": {
+        "current": 10,
+        "max": 10
+      },
+      "initiativeModifier": 0,
+      "armorIds": [],
+      "toughness": 30,
+      "attributes": {
+        "KG": 30,
+        "BF": 30,
+        "ST": 30,
+        "WI": 30,
+        "GE": 30,
+        "IN": 30,
+        "WA": 30,
+        "WK": 30,
+        "CH": 30,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "lasgun",
+          "name": "Lasgewehr",
+          "type": "ranged",
+          "range": 100,
+          "damage": "1d10+3",
+          "pen": 0,
+          "rof": "E/3/-",
+          "mag": 60,
+          "reload": 1,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "instanceId": 1757591353639.3264
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757595685220.148,
+      "name": "Patrick",
+      "type": "player",
+      "category": "minion",
+      "hp": 10,
+      "initiativeModifier": 0,
+      "armorIds": [],
+      "toughness": 30,
+      "attributes": {
+        "KG": 30,
+        "BF": 30,
+        "ST": 30,
+        "WI": 30,
+        "GE": 30,
+        "IN": 30,
+        "WA": 30,
+        "WK": 30,
+        "CH": 30,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "bolter",
+          "name": "Bolter",
+          "type": "ranged",
+          "range": 100,
+          "damage": "1d10+5",
+          "pen": 4,
+          "rof": "E/3/-",
+          "mag": 24,
+          "reload": 1,
+          "special": [
+            "Tearing"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757771048242.5269
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k",
+      "tags": [],
+      "talents": []
+    },
+    {
+      "id": 1757723337339.9321,
+      "name": "Verückter Servitor",
+      "type": "npc",
+      "category": "elite",
+      "tags": [
+        "Maschine",
+        "Servitor"
+      ],
+      "hp": 60,
+      "initiativeModifier": 0,
+      "armorIds": [
+        "armor_6"
+      ],
+      "toughness": 30,
+      "attributes": {
+        "KG": 49,
+        "BF": 27,
+        "ST": 49,
+        "WI": 60,
+        "GE": 27,
+        "IN": 38,
+        "WA": 27,
+        "WK": 27,
+        "CH": 27,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "serv_claws",
+          "name": "Servitor Klauen",
+          "type": "melee",
+          "damage": "1d10+4",
+          "pen": 2,
+          "special": [],
+          "skill": "WS",
+          "system": "wh40k",
+          "requirements": [
+            "servitor"
+          ],
+          "restrictions": [
+            "tier",
+            "dämon"
+          ],
+          "instanceId": 1757725796106.2102
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k",
+      "talents": [
+        {
+          "id": "flesh_is_weak",
+          "level": 3
+        },
+        {
+          "id": "machine_trait",
+          "level": 1
+        }
+      ]
+    },
+    {
+      "id": 1757756227217.568,
+      "name": "Verückter Logis",
+      "type": "npc",
+      "category": "elite",
+      "tags": [
+        "Mensch",
+        "Tech-Priest",
+        "Adeptus"
+      ],
+      "hp": 70,
+      "initiativeModifier": 0,
+      "armorIds": [
+        "armor_10"
+      ],
+      "talents": [
+        {
+          "id": "flesh_is_weak",
+          "level": 4
+        },
+        {
+          "id": "deepanalyses",
+          "level": 1
+        }
+      ],
+      "attributes": {
+        "KG": 27,
+        "BF": 55,
+        "ST": 27,
+        "WI": 66,
+        "GE": 27,
+        "IN": 49,
+        "WA": 27,
+        "WK": 27,
+        "CH": 27,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "hunting_rifle",
+          "name": "Scharfschützengewehr",
+          "type": "ranged",
+          "range": 150,
+          "damage": "1d10+4",
+          "pen": 3,
+          "rof": "E/-/-",
+          "mag": 5,
+          "reload": 1,
+          "special": [
+            "Accurate"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757756256481.4585
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k",
+      "toughness": 30
+    },
+    {
+      "id": 1757760004581.7205,
+      "name": "Verückter Technomat",
+      "type": "npc",
+      "category": "minion",
+      "tags": [
+        "Adeptus",
+        "Tech-Priest"
+      ],
+      "hp": {
+        "current": 20,
+        "max": 20
+      },
+      "initiativeModifier": 0,
+      "armorIds": [
+        "armor_7"
+      ],
+      "talents": [
+        {
+          "id": "flesh_is_weak",
+          "level": 2
+        },
+        {
+          "id": "deepanalyses",
+          "level": 1
+        }
+      ],
+      "attributes": {
+        "KG": 22,
+        "BF": 44,
+        "ST": 22,
+        "WI": 49,
+        "GE": 22,
+        "IN": 33,
+        "WA": 22,
+        "WK": 22,
+        "CH": 22,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "hunting_rifle",
+          "name": "Scharfschützengewehr",
+          "type": "ranged",
+          "range": 150,
+          "damage": "1d10+4",
+          "pen": 3,
+          "rof": "E/-/-",
+          "mag": 5,
+          "reload": 1,
+          "special": [
+            "Accurate"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757760003487.2686
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757760145264.9197,
+      "name": "Verückter Magus",
+      "type": "npc",
+      "category": "boss",
+      "tags": [
+        "Adeptus",
+        "Tech-Priest"
+      ],
+      "hp": {
+        "current": 75,
+        "max": 75
+      },
+      "initiativeModifier": 0,
+      "armorIds": [
+        "armor_10"
+      ],
+      "talents": [
+        {
+          "id": "flesh_is_weak",
+          "level": 4
+        },
+        {
+          "id": "deepanalyses",
+          "level": 1
+        }
+      ],
+      "attributes": {
+        "KG": 27,
+        "BF": 50,
+        "ST": 27,
+        "WI": 66,
+        "GE": 27,
+        "IN": 49,
+        "WA": 27,
+        "WK": 27,
+        "CH": 27,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "plasma_pistol",
+          "name": "Plasmapistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+6",
+          "pen": 6,
+          "rof": "E/2/-",
+          "mag": 10,
+          "reload": 3,
+          "special": [
+            "Overheat"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757760143161.067
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757762229880.953,
+      "name": "Vox-Schädel",
+      "type": "npc",
+      "category": "minion",
+      "tags": [
+        "Maschine"
+      ],
+      "hp": 10,
+      "initiativeModifier": 0,
+      "armorIds": [
+        "armor_3"
+      ],
+      "talents": [
+        {
+          "id": "vox_skill",
+          "level": 1
+        }
+      ],
+      "attributes": {
+        "KG": 22,
+        "BF": 38,
+        "ST": 22,
+        "WI": 44,
+        "GE": 22,
+        "IN": 27,
+        "WA": 22,
+        "WK": 22,
+        "CH": 22,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757767103785.307,
+      "name": "Schmiedemonstrum",
+      "type": "npc",
+      "category": "monster",
+      "tags": [
+        "Maschine"
+      ],
+      "hp": 150,
+      "armorIds": [
+        "armor_8"
+      ],
+      "talents": [
+        {
+          "id": "two_weapon_wielder",
+          "level": 1
+        }
+      ],
+      "attributes": {
+        "KG": 66,
+        "BF": 66,
+        "ST": 66,
+        "WI": 71,
+        "GE": 33,
+        "IN": 33,
+        "WA": 33,
+        "WK": 33,
+        "CH": 33,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "serv_claws",
+          "name": "Servitor Klauen",
+          "type": "melee",
+          "damage": "1d10+4",
+          "pen": 2,
+          "special": [],
+          "skill": "WS",
+          "system": "wh40k",
+          "requirements": [
+            "servitor",
+            "maschine"
+          ],
+          "restrictions": [
+            "tier",
+            "dämon"
+          ],
+          "instanceId": 1757767520706.533
+        },
+        {
+          "id": "double_plasma",
+          "name": "Zwillings-Plasma",
+          "type": "range",
+          "damage": "2d10+3",
+          "pen": 5,
+          "range": 80,
+          "rof": "E/2/-",
+          "mag": 20,
+          "reload": 2,
+          "special": [
+            "Shocking"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "require": [
+            "maschine"
+          ],
+          "instanceId": 1757767526738.4092
+        }
+      ],
+      "skills": {},
+      "notes": "Schlägt nach jedem angriff nach dem 1 zurück",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757778834594.4402,
+      "name": "Warp-Biest",
+      "type": "npc",
+      "category": "elite",
+      "tags": [
+        "Chaos",
+        "Dämon"
+      ],
+      "hp": 85,
+      "armorIds": [],
+      "talents": [
+        {
+          "id": "unnatural_toughness",
+          "level": 1
+        },
+        {
+          "id": "swift_attack",
+          "level": 1
+        }
+      ],
+      "attributes": {
+        "KG": 66,
+        "BF": 49,
+        "ST": 66,
+        "WI": 71,
+        "GE": 33,
+        "IN": 49,
+        "WA": 33,
+        "WK": 49,
+        "CH": 33,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "warp_claws",
+          "name": "Warpklauen",
+          "type": "melee",
+          "damage": "1d10+5",
+          "pen": 8,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Warp Weapon",
+            "Felling (2)"
+          ],
+          "skill": "WS",
+          "system": "wh40k",
+          "requirements": [
+            "dämon",
+            "chaos"
+          ],
+          "instanceId": 1757779271290.1143
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757779148747.3352,
+      "name": "Blauer Horror",
+      "type": "npc",
+      "category": "elite",
+      "tags": [
+        "Chaos",
+        "Dämon"
+      ],
+      "hp": 45,
+      "armorIds": [],
+      "talents": [
+        {
+          "id": "unnatural_toughness",
+          "level": 1
+        },
+        {
+          "id": "demon_fire",
+          "level": 1
+        }
+      ],
+      "attributes": {
+        "KG": 49,
+        "BF": 27,
+        "ST": 49,
+        "WI": 60,
+        "GE": 38,
+        "IN": 27,
+        "WA": 27,
+        "WK": 38,
+        "CH": 28,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "natural_claws",
+          "name": "Klauen",
+          "type": "melee",
+          "damage": "1d10+2",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Primitive"
+          ],
+          "skill": "WS",
+          "restrictions": [
+            "Servitor",
+            "Maschine"
+          ],
+          "system": "wh40k",
+          "instanceId": 1757779196851.403
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757779709899.6504,
+      "name": "Bessener",
+      "type": "npc",
+      "category": "minion",
+      "tags": [
+        "Mensch"
+      ],
+      "hp": 12,
+      "armorIds": [],
+      "talents": [],
+      "attributes": {
+        "KG": 38,
+        "BF": 27,
+        "ST": 38,
+        "WI": 44,
+        "GE": 27,
+        "IN": 22,
+        "WA": 22,
+        "WK": 22,
+        "CH": 22,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "natural_claws",
+          "name": "Klauen",
+          "type": "melee",
+          "damage": "1d10+2",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Primitive"
+          ],
+          "skill": "WS",
+          "restrictions": [
+            "Servitor",
+            "Maschine"
+          ],
+          "system": "wh40k",
+          "instanceId": 1757779708460.3962
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757781531285.4585,
+      "name": "Aufständiger",
+      "type": "npc",
+      "category": "minion",
+      "tags": [
+        "Mensch"
+      ],
+      "hp": 20,
+      "armorIds": [],
+      "talents": [],
+      "attributes": {
+        "KG": 30,
+        "BF": 30,
+        "ST": 30,
+        "WI": 30,
+        "GE": 30,
+        "IN": 30,
+        "WA": 30,
+        "WK": 30,
+        "CH": 30,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "las_pistol",
+          "name": "Laspistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+2",
+          "pen": 0,
+          "rof": "E/2/-",
+          "mag": 30,
+          "reload": 0.5,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757781524501.3645
+        },
+        {
+          "id": "autopistol",
+          "name": "Autopistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+2",
+          "pen": 0,
+          "rof": "E/6/-",
+          "mag": 18,
+          "reload": 1,
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757781528770.789
+        },
+        {
+          "id": "lasgun",
+          "name": "Lasgewehr",
+          "type": "ranged",
+          "range": 100,
+          "damage": "1d10+3",
+          "pen": 0,
+          "rof": "E/3/-",
+          "mag": 60,
+          "reload": 1,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757794801836.0796
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757781850783.953,
+      "name": "Rebell",
+      "type": "npc",
+      "category": "minion",
+      "tags": [
+        "Mensch"
+      ],
+      "hp": {
+        "current": 30,
+        "max": 30
+      },
+      "armorIds": [],
+      "talents": [],
+      "attributes": {
+        "KG": 40,
+        "BF": 45,
+        "ST": 40,
+        "WI": 40,
+        "GE": 40,
+        "IN": 25,
+        "WA": 30,
+        "WK": 30,
+        "CH": 30,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "chainsword",
+          "name": "Kettenschwert",
+          "type": "melee",
+          "damage": "1d10+2",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Tearing",
+            "Balanced"
+          ],
+          "skill": "WS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757781786234.8716
+        },
+        {
+          "id": "storm_lasgun",
+          "name": "Sturmlasergewehr",
+          "type": "ranged",
+          "range": 50,
+          "damage": "1d10+3",
+          "pen": 0,
+          "rof": "E/-/5",
+          "mag": 120,
+          "reload": 2,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757781806584.2305
+        },
+        {
+          "id": "hunting_rifle",
+          "name": "Scharfschützengewehr",
+          "type": "ranged",
+          "range": 150,
+          "damage": "1d10+4",
+          "pen": 3,
+          "rof": "E/-/-",
+          "mag": 5,
+          "reload": 1,
+          "special": [
+            "Accurate"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757781812297.5483
+        },
+        {
+          "id": "autopistol",
+          "name": "Autopistole",
+          "type": "ranged",
+          "range": 30,
+          "damage": "1d10+2",
+          "pen": 0,
+          "rof": "E/6/-",
+          "mag": 18,
+          "reload": 1,
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757781847705.0183
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757794515460.0762,
+      "name": "Rebellen Elite",
+      "type": "npc",
+      "category": "elite",
+      "tags": [
+        "Mensch"
+      ],
+      "hp": 35,
+      "armorIds": [
+        "armor_8"
+      ],
+      "talents": [],
+      "attributes": {
+        "KG": 45,
+        "BF": 45,
+        "ST": 40,
+        "WI": 40,
+        "GE": 40,
+        "IN": 35,
+        "WA": 40,
+        "WK": 40,
+        "CH": 30,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "hunting_rifle",
+          "name": "Scharfschützengewehr",
+          "type": "ranged",
+          "range": 150,
+          "damage": "1d10+4",
+          "pen": 3,
+          "rof": "E/-/-",
+          "mag": 5,
+          "reload": 1,
+          "special": [
+            "Accurate"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757794477788.7126
+        },
+        {
+          "id": "mars_melter",
+          "name": "Melter (Mars)",
+          "type": "ranged",
+          "range": 20,
+          "damage": "2d10+8",
+          "pen": 13,
+          "rof": "E/-/-",
+          "mag": 5,
+          "reload": 2,
+          "special": [
+            "Melta"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757794738580.8496
+        },
+        {
+          "id": "chainsword",
+          "name": "Kettenschwert",
+          "type": "melee",
+          "damage": "1d10+2",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Tearing",
+            "Balanced"
+          ],
+          "skill": "WS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757794759916.2231
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757794909356.2476,
+      "name": "Kampf Servitor",
+      "type": "npc",
+      "category": "boss",
+      "tags": [
+        "Servitor",
+        "Maschine"
+      ],
+      "hp": 85,
+      "armorIds": [],
+      "talents": [
+        {
+          "id": "flesh_is_weak",
+          "level": 4
+        },
+        {
+          "id": "machine_trait",
+          "level": 1
+        }
+      ],
+      "attributes": {
+        "KG": 25,
+        "BF": 60,
+        "ST": 40,
+        "WI": 60,
+        "GE": 27,
+        "IN": 25,
+        "WA": 25,
+        "WK": 25,
+        "CH": 25,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "mars_multimelter",
+          "name": "Multi-Melter (Mars)",
+          "type": "ranged",
+          "range": 60,
+          "damage": "4d10+5",
+          "pen": 13,
+          "rof": "E/-/-",
+          "mag": 10,
+          "reload": 2,
+          "special": [
+            "Melta",
+            "Explosiv(1)"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon"
+          ],
+          "instanceId": 1757795066924.2783
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757796553668.8113,
+      "name": "Aledari-Gardist",
+      "type": "npc",
+      "category": "elite",
+      "tags": [],
+      "hp": 40,
+      "armorIds": [
+        "armor_8"
+      ],
+      "talents": [],
+      "attributes": {
+        "KG": 60,
+        "BF": 60,
+        "ST": 60,
+        "WI": 50,
+        "GE": 60,
+        "IN": 35,
+        "WA": 35,
+        "WK": 50,
+        "CH": 40,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "eldarsword",
+          "name": "Eldar Energieschwert",
+          "type": "melee",
+          "damage": "1d10+4",
+          "pen": 8,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Balanced",
+            "Energiefield"
+          ],
+          "skill": "WS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757797065069.5435
+        },
+        {
+          "id": "shuriken",
+          "name": "Shurikenkatapult",
+          "type": "ranged",
+          "damage": "1d10+4",
+          "pen": 4,
+          "rof": "E/3/10",
+          "mag": 100,
+          "reload": 2,
+          "special": [
+            "Reliable"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757797270580.6785
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757828463679.1755,
+      "name": "Alpha-Lacerax",
+      "type": "npc",
+      "category": "elite",
+      "tags": [
+        "Tier"
+      ],
+      "hp": 40,
+      "armorIds": [],
+      "talents": [
+        {
+          "id": "natural armor",
+          "level": 4
+        }
+      ],
+      "attributes": {
+        "KG": 55,
+        "BF": 20,
+        "ST": 60,
+        "WI": 40,
+        "GE": 60,
+        "IN": 25,
+        "WA": 30,
+        "WK": 30,
+        "CH": 30,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "natural_claws",
+          "name": "Klauen",
+          "type": "melee",
+          "damage": "1d10+2",
+          "pen": 2,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Primitive"
+          ],
+          "skill": "WS",
+          "restrictions": [
+            "Servitor",
+            "Maschine"
+          ],
+          "system": "wh40k",
+          "instanceId": 1757828435335.0234
+        },
+        {
+          "id": "natural_bite",
+          "name": "Biss",
+          "type": "melee",
+          "damage": "1d10+3",
+          "pen": 3,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Primitive"
+          ],
+          "restrictions": [
+            "Servitor",
+            "Maschine"
+          ],
+          "skill": "WS",
+          "system": "wh40k",
+          "instanceId": 1757828439511.3435
+        }
+      ],
+      "skills": {},
+      "notes": "Reptielienartige Bestien mit 2 langen Schwänzen. und 5 Tentakelartigen Zungen. 4 meter lang 1.5 Schulterhöhe",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757834004743.457,
+      "name": "Wächter der Geheimkammer",
+      "type": "npc",
+      "category": "elite",
+      "tags": [
+        "Kultist",
+        "Mensch"
+      ],
+      "hp": {
+        "current": 45,
+        "max": 45
+      },
+      "armorIds": [
+        "armor_3"
+      ],
+      "talents": [
+        {
+          "id": "natural armor",
+          "level": 4
+        }
+      ],
+      "attributes": {
+        "KG": 45,
+        "BF": 50,
+        "ST": 45,
+        "WI": 45,
+        "GE": 40,
+        "IN": 35,
+        "WA": 35,
+        "WK": 40,
+        "CH": 40,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "autogun",
+          "name": "Autogewehr",
+          "type": "ranged",
+          "range": 100,
+          "damage": "1d10+3",
+          "pen": 0,
+          "rof": "E/3/10",
+          "mag": 30,
+          "reload": 1,
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "Servitor",
+            "Maschine"
+          ],
+          "instanceId": 1757834002706.6067
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757834119031.595,
+      "name": "Geheimkammer Lieutentant",
+      "type": "npc",
+      "category": "elite",
+      "tags": [
+        "Kultist",
+        "Mensch"
+      ],
+      "hp": {
+        "current": 55,
+        "max": 55
+      },
+      "armorIds": [
+        "armor_3"
+      ],
+      "talents": [
+        {
+          "id": "natural armor",
+          "level": 4
+        }
+      ],
+      "attributes": {
+        "KG": 55,
+        "BF": 55,
+        "ST": 55,
+        "WI": 50,
+        "GE": 40,
+        "IN": 35,
+        "WA": 35,
+        "WK": 40,
+        "CH": 40,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "bolter",
+          "name": "Bolter",
+          "type": "ranged",
+          "range": 100,
+          "damage": "1d10+5",
+          "pen": 4,
+          "rof": "E/3/-",
+          "mag": 24,
+          "reload": 1,
+          "special": [
+            "Tearing"
+          ],
+          "skill": "BS",
+          "system": "wh40k",
+          "restrictions": [
+            "tier",
+            "dämon",
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757834117315.1255
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757834187126.5393,
+      "name": "Brautjungfer ",
+      "type": "npc",
+      "category": "boss",
+      "tags": [
+        "Kultist"
+      ],
+      "hp": 55,
+      "armorIds": [
+        "armor_1"
+      ],
+      "talents": [
+        {
+          "id": "natural armor",
+          "level": 4
+        },
+        {
+          "id": "summondemonette",
+          "level": 1
+        }
+      ],
+      "attributes": {
+        "KG": 40,
+        "BF": 40,
+        "ST": 40,
+        "WI": 40,
+        "GE": 40,
+        "IN": 40,
+        "WA": 40,
+        "WK": 40,
+        "CH": 40,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [
+        {
+          "id": "knife",
+          "name": "Messer",
+          "type": "melee",
+          "damage": "1d5",
+          "pen": 0,
+          "rof": "-/-/-",
+          "mag": 0,
+          "reload": 0,
+          "special": [
+            "Primitive(7)"
+          ],
+          "skill": "WS",
+          "system": "wh40k",
+          "restrictions": [
+            "servitor",
+            "maschine"
+          ],
+          "instanceId": 1757834183675.74
+        }
+      ],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    },
+    {
+      "id": 1757834500406.4424,
+      "name": "Dämonette des Slaanesh",
+      "type": "npc",
+      "category": "elite",
+      "tags": [
+        "Dämon",
+        "Chaos"
+      ],
+      "hp": 65,
+      "armorIds": [],
+      "talents": [
+        {
+          "id": "natural armor",
+          "level": 4
+        },
+        {
+          "id": "summondemonette",
+          "level": 1
+        },
+        {
+          "id": "unnatural_toughness",
+          "level": 1
+        },
+        {
+          "id": "two_weapon_wielder",
+          "level": 1
+        },
+        {
+          "id": "auraeupo",
+          "level": 1
+        }
+      ],
+      "attributes": {
+        "KG": 50,
+        "BF": 35,
+        "ST": 45,
+        "WI": 60,
+        "GE": 50,
+        "IN": 40,
+        "WA": 35,
+        "WK": 40,
+        "CH": 40,
+        "STR": 10,
+        "DEX": 10,
+        "CON": 10,
+        "INT": 10,
+        "WIS": 10,
+        "CHA": 10
+      },
+      "weaponInstances": [],
+      "skills": {},
+      "notes": "",
+      "system": "wh40k"
+    }
+  ],
+  "playerGroups": [
+    {
+      "id": 1757595685220.9795,
+      "name": "Gruppe",
+      "playerIds": [
+        1757591204555.3577,
+        1757591260877.5857,
+        1757591311729.6917,
+        1757591355379.0935,
+        1757591402171.2,
+        1757595685220.0078,
+        1757595685220.9275,
+        1757595685220.4658,
+        1757595685220.37,
+        1757595685220.148
+      ],
+      "isActive": true
+    }
+  ],
+  "encounterGroups": [
+    {
+      "id": 1757727138586.8025,
+      "name": "Kampf auf dem Schiff in Aviorus 1",
+      "description": "Der erste überfall auf dem Rückweg",
+      "npcIds": [
+        1757723337339.9321,
+        1757723337339.9321,
+        1757723337339.9321,
+        1757723337339.9321,
+        1757756227217.568,
+        1757760004581.7205,
+        1757760004581.7205,
+        1757760145264.9197
+      ],
+      "difficulty": "medium",
+      "npcEntries": [
+        {
+          "npcId": 1757723337339.9321,
+          "count": 4
+        },
+        {
+          "npcId": 1757756227217.568,
+          "count": 1
+        },
+        {
+          "npcId": 1757760004581.7205,
+          "count": 2
+        },
+        {
+          "npcId": 1757760145264.9197,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": 1757762123096.524,
+      "name": "Kampf auf dem Schiff in Aviorus 2",
+      "description": "",
+      "npcIds": [
+        1757760004581.7205,
+        1757760004581.7205,
+        1757760004581.7205,
+        1757760004581.7205,
+        1757760145264.9197,
+        1757762229880.953,
+        1757762229880.953,
+        1757762229880.953,
+        1757762229880.953
+      ],
+      "difficulty": "medium",
+      "npcEntries": [
+        {
+          "npcId": 1757760004581.7205,
+          "count": 1
+        },
+        {
+          "npcId": 1757760004581.7205,
+          "count": 1
+        },
+        {
+          "npcId": 1757760004581.7205,
+          "count": 1
+        },
+        {
+          "npcId": 1757760004581.7205,
+          "count": 1
+        },
+        {
+          "npcId": 1757760145264.9197,
+          "count": 1
+        },
+        {
+          "npcId": 1757762229880.953,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": 1757767637770.6829,
+      "name": "Kampf auf dem Schiff in Aviorus Final",
+      "description": "Boss Kampf",
+      "npcIds": [
+        1757767103785.307,
+        1757723337339.9321,
+        1757723337339.9321,
+        1757762229880.953,
+        1757762229880.953
+      ],
+      "difficulty": "medium",
+      "npcEntries": [
+        {
+          "npcId": 1757767103785.307,
+          "count": 1
+        },
+        {
+          "npcId": 1757723337339.9321,
+          "count": 2
+        },
+        {
+          "npcId": 1757762229880.953,
+          "count": 1
+        },
+        {
+          "npcId": 1757762229880.953,
+          "count": 1
+        }
+      ]
+    },
+    {
+      "id": 1757779766155.7773,
+      "name": "Theodora Warp Schiff",
+      "description": "Der Kampf mit der seltsamen Thodora die in den Unterdecks gescihtet wurde",
+      "npcIds": [
+        1757778834594.4402,
+        1757779148747.3352,
+        1757779148747.3352,
+        1757779709899.6504,
+        1757779709899.6504,
+        1757779709899.6504,
+        1757779709899.6504
+      ],
+      "difficulty": "medium",
+      "npcEntries": [
+        {
+          "npcId": 1757778834594.4402,
+          "count": 1
+        },
+        {
+          "npcId": 1757779148747.3352,
+          "count": 1
+        },
+        {
+          "npcId": 1757779148747.3352,
+          "count": 1
+        },
+        {
+          "npcId": 1757779709899.6504,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": 1757781872297.156,
+      "name": "Überfall Janus",
+      "description": "",
+      "npcIds": [
+        1757781531285.4585,
+        1757781531285.4585,
+        1757781531285.4585,
+        1757781531285.4585,
+        1757781850783.953,
+        1757781850783.953,
+        1757781850783.953,
+        1757781850783.953,
+        1757781850783.953,
+        1757781850783.953
+      ],
+      "difficulty": "medium",
+      "npcEntries": [
+        {
+          "npcId": 1757781531285.4585,
+          "count": 1
+        },
+        {
+          "npcId": 1757781531285.4585,
+          "count": 1
+        },
+        {
+          "npcId": 1757781531285.4585,
+          "count": 1
+        },
+        {
+          "npcId": 1757781531285.4585,
+          "count": 1
+        },
+        {
+          "npcId": 1757781850783.953,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "id": 1757795109660.6194,
+      "name": "Rebellen Lager Janus Wald",
+      "description": "",
+      "npcIds": [
+        1757794515460.0762,
+        1757794515460.0762,
+        1757794515460.0762,
+        1757794515460.0762,
+        1757794909356.2476,
+        1757781531285.4585,
+        1757781531285.4585,
+        1757781531285.4585,
+        1757781531285.4585,
+        1757781531285.4585,
+        1757781531285.4585
+      ],
+      "difficulty": "medium",
+      "npcEntries": [
+        {
+          "npcId": 1757794515460.0762,
+          "count": 4
+        },
+        {
+          "npcId": 1757794909356.2476,
+          "count": 1
+        },
+        {
+          "npcId": 1757781531285.4585,
+          "count": 6
+        }
+      ]
+    },
+    {
+      "id": 1757797308612.93,
+      "name": "Verstärkung Eldar wenn die Rebellen am verlieren sind. ",
+      "description": "",
+      "npcIds": [
+        1757796553668.8113,
+        1757796553668.8113
+      ],
+      "difficulty": "medium",
+      "npcEntries": [
+        {
+          "npcId": 1757796553668.8113,
+          "count": 2
+        }
+      ]
+    },
+    {
+      "id": 1757829318703.9336,
+      "name": "Monster Janus Jungel",
+      "description": "",
+      "npcIds": [
+        1757828463679.1755,
+        1757828463679.1755,
+        1757828463679.1755,
+        1757828463679.1755
+      ],
+      "difficulty": "medium",
+      "npcEntries": [
+        {
+          "npcId": 1757828463679.1755,
+          "count": 4
+        }
+      ]
+    },
+    {
+      "id": 1757834756386.7124,
+      "name": "Gegner in der Geheimkammer",
+      "description": "",
+      "npcIds": [
+        1757834119031.595,
+        1757834500406.4424,
+        1757834500406.4424,
+        1757834187126.5393,
+        1757834004743.457,
+        1757834004743.457,
+        1757834004743.457,
+        1757834004743.457,
+        1757779709899.6504,
+        1757779709899.6504,
+        1757779709899.6504,
+        1757779709899.6504
+      ],
+      "difficulty": "medium",
+      "npcEntries": [
+        {
+          "npcId": 1757834119031.595,
+          "count": 1
+        },
+        {
+          "npcId": 1757834500406.4424,
+          "count": 2
+        },
+        {
+          "npcId": 1757834187126.5393,
+          "count": 1
+        },
+        {
+          "npcId": 1757834004743.457,
+          "count": 4
+        },
+        {
+          "npcId": 1757779709899.6504,
+          "count": 4
+        }
+      ]
+    }
+  ]
+}

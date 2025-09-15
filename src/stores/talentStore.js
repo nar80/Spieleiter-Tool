@@ -37,6 +37,20 @@ export const useTalentStore = defineStore('talent', () => {
       system: 'wh40k'
     },
     {
+      id: 'deepanalyses',
+      name: 'Tiefen Analyse',
+      description: 'Durch genaue Analyse des Ziels wird das Ausweichen und die Rüstung des Ziels Reduziert. IN -10 Bei erfolg Erfolgsgrad Runden erhält das Ziel -10 ausweichen -3 RS ',
+      shortDesc: 'Scann Gegner',
+      type: 'active',
+      stackable: false,
+      displayInCombat: true,
+      effects: {
+        Analysiert: ['-10 Ausweichen', '-3 Rüstung'], 
+      },
+      requirements: ['mechanicus', 'tech-priest', 'techpriest'],
+      system: 'wh40k'
+    },
+    {
       id: 'machine_trait',
       name: 'Maschinen-Eigenschaft',
       description: 'Immun gegen Furcht, Gift und Betäubung. Kann nur durch Tech-Use geheilt werden, nicht durch normale Medizin',
@@ -49,6 +63,20 @@ export const useTalentStore = defineStore('talent', () => {
         healingType: 'tech_use_only'
       },
       requirements: ['servitor', 'machine', 'mechanicus'],
+      system: 'wh40k'
+    },
+    {
+      id: 'vox_skill',
+      name: 'Unheilige-Reperatur',
+      description: 'Kann mit einer Int Probe andere Maschienen reparieren heilt IN bonus Punkte',
+      shortDesc: 'Reperatur',
+      type: 'active',
+      stackable: false,
+      displayInCombat: true,
+      effects: {
+        healingType: 'tech_use_only'
+      },
+      requirements: ['maschine'],
       system: 'wh40k'
     },
     
@@ -129,6 +157,21 @@ export const useTalentStore = defineStore('talent', () => {
       requirements: ['daemon', 'warp'],
       system: 'wh40k'
     },
+    {
+      id: 'demon_fire',
+      name: 'Dämonisches Feuer',
+      description: 'Ein Feuer welches 5 meter um den Horror lodert. Wk zum wieder Stand min soviele erfolge wie der WK Wirkungswurf. Schaden 1W10+WKb Rüstung -1 Pro Erfolgsgrad',
+      shortDesc: 'Ignoriert kritische Treffer',
+      type: 'active',
+      stackable: false,
+      displayInCombat: true,
+      effects: {
+        ignoresCritical: true,
+        specialDeath: true
+      },
+      requirements: ['dämon', 'warp'],
+      system: 'wh40k'
+    },
     
     // ========== KAMPF-TALENTE ==========
     {
@@ -198,6 +241,20 @@ export const useTalentStore = defineStore('talent', () => {
       effects: {
         ignoreStun: true,
         lastStand: true
+      },
+      requirements: [],
+      system: 'wh40k'
+    },
+    {
+      id: 'lightning_reflexes',
+      name: 'Blitzschnelle Reflexe',
+      description: 'Außergewöhnlich schnelle Reaktionszeit gewährt +2 auf alle Initiativewürfe',
+      shortDesc: 'Initiative +2',
+      type: 'passive',
+      stackable: false,
+      displayInCombat: false, // Nicht so wichtig im Kampf anzuzeigen
+      effects: {
+        initiativeBonus: 2
       },
       requirements: [],
       system: 'wh40k'
@@ -283,6 +340,48 @@ export const useTalentStore = defineStore('talent', () => {
       system: 'wh40k'
     },
     {
+      id: 'natural armor',
+      name: 'Natürliche Rüstung',
+      description: 'Natürliche Panzerplatten, dickes Fell, zähe Haut usw.',
+      shortDesc: 'Natürlicher Schutz vor Verletzungen',
+      type: 'passive',
+      stackable: true,
+      maxStacks: 5,
+      displayInCombat: true,
+      effects: {
+        armorBonus: 1,
+      },
+      requirements: ['tier','bestie'],
+      system: 'wh40k'
+    },
+    {
+      id: 'summondemonette',
+      name: 'Demonette beschwören',
+      description: 'Beschwört eine Demonette des Slaanesh WK Probe ist erforderlich zeit Eine Runde',
+      shortDesc: 'Beschwörung',
+      type: 'aktive',
+      stackable: false,
+      displayInCombat: true,
+      effects: {
+        summon: ['Demonette'],
+      },
+      requirements: ['kultist'],
+      system: 'wh40k'
+    },
+    {
+      id: 'auraeupo',
+      name: 'Aura der Euphorie',
+      description: 'von der Kreatur geht eine Aura aus die euch euphorisch macht es ist schwer sich zu konzentieren. -10BF,-10KG',
+      shortDesc: 'Aura -10BF, -10KG',
+      type: 'passive',
+      stackable: false,
+      displayInCombat: true,
+      effects: {
+      },
+      requirements: ['dämon'],
+      system: 'wh40k'
+    },
+    {
       id: 'warp_instability',
       name: 'Warp-Instabilität',
       description: 'Dämon wird bei 0 HP zurück in den Warp verbannt statt zu sterben',
@@ -350,6 +449,20 @@ export const useTalentStore = defineStore('talent', () => {
     })
     
     return Math.floor(baseStrength / 10) * multiplier
+  }
+  
+  // Berechne Initiative-Bonus aus Talenten
+  const calculateInitiativeBonus = (talents = []) => {
+    let bonus = 0
+    
+    talents.forEach(talentInstance => {
+      const talentDef = allTalents.value.find(t => t.id === talentInstance.id)
+      if (talentDef && talentDef.effects?.initiativeBonus) {
+        bonus += talentDef.effects.initiativeBonus
+      }
+    })
+    
+    return bonus
   }
   
   // Prüfe ob Talent für Template verfügbar ist
@@ -446,6 +559,7 @@ export const useTalentStore = defineStore('talent', () => {
     calculateEffectiveArmor,
     calculateEffectiveToughness,
     calculateEffectiveStrength,
+    calculateInitiativeBonus,
     
     // Aktionen
     isTalentAvailableForTemplate,
