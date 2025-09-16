@@ -4,6 +4,52 @@ import { ref, computed } from 'vue'
 export const useTalentStore = defineStore('talent', () => {
   
   const defaultTalents = [
+
+    // ========== MUTATIONS ==========
+  {
+      id: 'acid_spit',
+      name: 'Säurespeichel',
+      description: 'Angriff BF Schaden 10W+2 senkt rüstung um 1 bei krit beschädigt Waffe',
+      shortDesc: '+1 RP pro Level',
+      type: 'active',
+      stackable: false,
+      maxStacks: 0,
+      displayInCombat: true,
+      effects: {
+      },
+      requirements: ['mutant'],
+      system: 'wh40k'
+    },
+    // ========== Psy Kräfte ==========
+ {
+      id: 'visonofdeath',
+      name: 'Todesvisonen',
+      description: 'Angriff Ziel erleidet 4 Schaden bei erfolgreicher Wk Probe sonst 8',
+      shortDesc: '4 bei Wk 8 bei fail',
+      type: 'active',
+      stackable: false,
+      maxStacks: 0,
+      displayInCombat: true,
+      effects: {
+      },
+      requirements: ['psioniker'],
+      system: 'wh40k'
+    },
+ {
+      id: 'warpshield',
+      name: 'Warpschild',
+      description: 'Absorbiert eine Runde allen Schaden 3 runden Cooldown',
+      shortDesc: '4 bei Wk 8 bei fail',
+      type: 'active',
+      stackable: false,
+      maxStacks: 0,
+      displayInCombat: true,
+      effects: {
+      },
+      requirements: ['psioniker'],
+      system: 'wh40k'
+    },
+
     // ========== MECHANICUS/TECH TALENTE ==========
     {
       id: 'flesh_is_weak',
@@ -94,7 +140,20 @@ export const useTalentStore = defineStore('talent', () => {
         ignoresWeapons: ['normal'], // Nur normale Waffen betroffen
         vulnerableTo: ['blessed', 'force', 'warp'] // Voller Schaden von diesen
       },
-      requirements: ['daemon', 'possessed', 'warp'],
+      requirements: ['dämon', 'possessed', 'warp'],
+      system: 'wh40k'
+    },
+    {
+      id: 'daemonic_controll',
+      name: 'Geist Vernebeln',
+      description: 'Der Dämon zwingt einen Spieler seine Verbündeten anzugreifen. Wk-10 kann durch eine Kommando Probe, und eventuell was anderes geheilt werden',
+      shortDesc: 'Zwingt einen Spieler seine Verbündeten anzugreifen',
+      type: 'aktive',
+      stackable: false,
+      displayInCombat: true,
+      effects: {
+      },
+      requirements: ['dämon', 'possessed', 'warp'],
       system: 'wh40k'
     },
     {

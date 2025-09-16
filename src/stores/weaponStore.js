@@ -398,6 +398,20 @@ export const useWeaponStore = defineStore('weapon', () => {
       restrictions: ['tier', 'servitor', 'maschine']
     },
     {
+      id: 'druhkari_great_weapon',
+      name: 'Druhkari Klaivare',
+      type: 'melee',
+      damage: '2d10+4',
+      pen: 3,
+      rof: '-/-/-',
+      mag: 0,
+      reload: 0,
+      special: ['Balanced'],
+      skill: 'WS',
+      system: 'wh40k',
+      restrictions: ['tier', 'servitor', 'maschine']
+    },
+    {
       id: 'club',
       name: 'Keule',
       type: 'melee',
@@ -931,6 +945,20 @@ export const useWeaponStore = defineStore('weapon', () => {
       mag: 0,
       reload: 0,
       special: ['Shocking'],
+      skill: 'WS',
+      system: 'wh40k',
+      restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
+    {
+      id: 'energie_maul',
+      name: 'Energie Schlagstock',
+      type: 'melee',
+      damage: '1d10+5',
+      pen: 4,
+      rof: '-/-/-',
+      mag: 0,
+      reload: 0,
+      special: ['Shocking','Energiefield'],
       skill: 'WS',
       system: 'wh40k',
       restrictions: ['tier', 'dämon', 'servitor', 'maschine']
