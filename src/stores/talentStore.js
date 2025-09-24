@@ -112,6 +112,18 @@ export const useTalentStore = defineStore('talent', () => {
       system: 'wh40k'
     },
     {
+      id: 'warmaster',
+      name: 'Kampfmeister',
+      description: 'Gegen diesen Charakter kann man keinen Voreil im Nahkampf erhalten.',
+      shortDesc: 'Kein Nahkampfvorteil',
+      type: 'passive',
+      stackable: false,
+      displayInCombat: true,
+      effects: {
+      },
+      system: 'wh40k'
+    },
+    {
       id: 'vox_skill',
       name: 'Unheilige-Reperatur',
       description: 'Kann mit einer Int Probe andere Maschienen reparieren heilt IN bonus Punkte',
@@ -139,6 +151,32 @@ export const useTalentStore = defineStore('talent', () => {
         damageReduction: 0.5, // Halbiert Schaden
         ignoresWeapons: ['normal'], // Nur normale Waffen betroffen
         vulnerableTo: ['blessed', 'force', 'warp'] // Voller Schaden von diesen
+      },
+      requirements: ['dämon', 'possessed', 'warp'],
+      system: 'wh40k'
+    },
+    {
+      id: 'borninflames',
+      name: 'In Flammen Geboren',
+      description: 'Immun gegen feuer Schaen und Bennen',
+      shortDesc: 'Immun Feuerschaden',
+      type: 'passive',
+      stackable: false,
+      displayInCombat: true,
+      effects: {
+      },
+      requirements: ['dämon', 'possessed', 'warp'],
+      system: 'wh40k'
+    },
+    {
+      id: 'scream_void',
+      name: 'Schrei der Leere',
+      description: 'Trifft alle die vor dem Dämon stehen 1W10+7 Schaden Wkb schützt',
+      shortDesc: 'Ae angriff',
+      type: 'active',
+      stackable: false,
+      displayInCombat: true,
+      effects: {
       },
       requirements: ['dämon', 'possessed', 'warp'],
       system: 'wh40k'

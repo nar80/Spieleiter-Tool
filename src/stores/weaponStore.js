@@ -207,13 +207,13 @@ export const useWeaponStore = defineStore('weapon', () => {
       id: 'lasgun',
       name: 'Lasgewehr',
       type: 'ranged',
-      range: 100,
-      damage: '1d10+3',
-      pen: 0,
+      range: 110,
+      damage: '1d10+4',
+      pen: 7,
       rof: 'E/3/-',
-      mag: 60,
-      reload: 1,
-      special: ['Reliable'],
+      mag: 30,
+      reload: 2,
+      special: [],
       skill: 'BS',
       system: 'wh40k',
       restrictions: ['tier', 'dämon', 'servitor', 'maschine']
@@ -412,6 +412,20 @@ export const useWeaponStore = defineStore('weapon', () => {
       restrictions: ['tier', 'servitor', 'maschine']
     },
     {
+      id: 'druhkari_poison_weapon',
+      name: 'Giftklinge',
+      type: 'melee',
+      damage: '1d10+5',
+      pen: 4,
+      rof: '-/-/-',
+      mag: 0,
+      reload: 0,
+      special: ['Balanced','Toxic'],
+      skill: 'WS',
+      system: 'wh40k',
+      restrictions: ['tier', 'servitor', 'maschine']
+    },
+    {
       id: 'club',
       name: 'Keule',
       type: 'melee',
@@ -470,6 +484,20 @@ export const useWeaponStore = defineStore('weapon', () => {
       restrictions: ['tier', 'dämon', 'servitor', 'maschine']
     },
     {
+      id: 'hellsword',
+      name: 'Höllenklinge',
+      type: 'melee',
+      damage: '1d10+5',
+      pen: 2,
+      rof: '-/-/-',
+      mag: 0,
+      reload: 0,
+      special: ['Energiefield'],
+      skill: 'WS',
+      system: 'wh40k',
+      restrictions: ['tier','servitor', 'maschine']
+    },
+    {
       id: 'shuriken',
       name: 'Shurikenkatapult',
       type: 'ranged',
@@ -483,7 +511,35 @@ export const useWeaponStore = defineStore('weapon', () => {
       system: 'wh40k',
       restrictions: ['tier', 'dämon', 'servitor', 'maschine']
     },
-    
+    // Granaten
+     {
+      id: 'spreng_granate',
+      name: 'Sprenggranate',
+      type: 'grenade',
+      damage: '2d10+4',
+      pen: 6,
+      rof: 'E/-/-',
+      mag: 1,
+      reload: 1,
+      special: ['Blast(4)'],
+      skill: 'BS',
+      system: 'wh40k',
+      restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
+     {
+      id: 'fragment_granate',
+      name: 'Fragmentgranate',
+      type: 'grenade',
+      damage: '2d10',
+      pen: 0,
+      rof: 'E/-/-',
+      mag: 1,
+      reload: 1,
+      special: [],
+      skill: 'BS',
+      system: 'wh40k',
+      restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
     // Erweiterte Waffen aus Into the Storm
     {
       id: 'dervish_lasgun',
@@ -537,10 +593,25 @@ export const useWeaponStore = defineStore('weapon', () => {
       range: 30,
       damage: '1d10+3',
       pen: 7,
-      rof: 'E/-/-',
+      rof: 'E/2/-',
       mag: 8,
       reload: 1,
       special: ['Toxic', 'Tearing'],
+      skill: 'BS',
+      system: 'wh40k',
+      restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
+    {
+      id: 'pison_rifle',
+      name: 'Splittergewehr',
+      type: 'ranged',
+      range: 60,
+      damage: '1d10+2',
+      pen: 7,
+      rof: 'E/3/6',
+      mag: 36,
+      reload: 1,
+      special: ['Toxic'],
       skill: 'BS',
       system: 'wh40k',
       restrictions: ['tier', 'dämon', 'servitor', 'maschine']
@@ -689,6 +760,21 @@ export const useWeaponStore = defineStore('weapon', () => {
       pen: 2,
       rof: 'E/-/-',
       mag: 6,
+      reload: 2,
+      special: ['Flame', 'Spray','focused'],
+      skill: 'BS',
+      system: 'wh40k',
+      restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
+    {
+      id: 'flamer_heavy',
+      name: 'Schwerer Flammenwerfer(Locke++)',
+      type: 'ranged',
+      range: 30,
+      damage: '2d10+6',
+      pen: 4,
+      rof: 'E/-/-',
+      mag: 10,
       reload: 2,
       special: ['Flame', 'Spray','focused'],
       skill: 'BS',
@@ -960,6 +1046,23 @@ export const useWeaponStore = defineStore('weapon', () => {
       reload: 0,
       special: ['Shocking','Energiefield'],
       skill: 'WS',
+      system: 'wh40k',
+      restrictions: ['tier', 'dämon', 'servitor', 'maschine']
+    },
+
+    // Exostische Xeno Waffen
+     {
+      id: 'webrifle',
+      name: 'Netzgewehr',
+      type: 'range',
+      damage: '0',
+      pen: 0,
+      range: 40,
+      rof: 'E/-/-',
+      mag: 1,
+      reload: 1,
+      special: ['Bewegunshemmend'],
+      skill: 'BS',
       system: 'wh40k',
       restrictions: ['tier', 'dämon', 'servitor', 'maschine']
     },

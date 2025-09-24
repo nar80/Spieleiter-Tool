@@ -790,11 +790,51 @@
                   </q-item>
                 </q-list>
 
+                <!-- Filter für Waffen -->
+                <div class="q-mb-md">
+                  <!-- Such-Filter -->
+                  <q-input
+                    v-model="weaponSearchQuery"
+                    debounce="300"
+                    filled
+                    dense
+                    placeholder="Waffe suchen..."
+                    class="q-mb-sm"
+                  >
+                    <template v-slot:prepend>
+                      <q-icon name="search" />
+                    </template>
+                    <template v-slot:append v-if="weaponSearchQuery">
+                      <q-icon
+                        name="close"
+                        @click="weaponSearchQuery = ''"
+                        class="cursor-pointer"
+                      />
+                    </template>
+                  </q-input>
+
+                  <!-- Kategorie-Filter -->
+                  <q-select
+                    v-model="weaponTypeFilter"
+                    :options="weaponTypeOptions"
+                    label="Waffentyp"
+                    filled
+                    dense
+                    clearable
+                    emit-value
+                    map-options
+                  >
+                    <template v-slot:prepend>
+                      <q-icon name="category" />
+                    </template>
+                  </q-select>
+                </div>
+
                 <!-- Waffe hinzufügen -->
                 <div class="row q-gutter-sm">
                   <q-select
                     v-model="selectedWeaponToAdd"
-                    :options="availableWeapons"
+                    :options="filteredAvailableWeapons"
                     label="Waffe hinzufügen"
                     filled
                     class="col"
@@ -802,6 +842,7 @@
                     map-options
                     option-label="label"
                     option-value="value"
+                    :hint="`${filteredAvailableWeapons.length} Waffen verfügbar`"
                   >
                     <template v-slot:option="scope">
                       <q-item v-bind="scope.itemProps">
@@ -812,6 +853,13 @@
                             <span v-if="scope.opt.range">
                               | Range: {{ scope.opt.range }}m</span
                             >
+                            <span v-if="scope.opt.type" class="q-ml-sm">
+                              <q-badge
+                                :color="getWeaponTypeColor(scope.opt.type)"
+                              >
+                                {{ getWeaponTypeLabel(scope.opt.type) }}
+                              </q-badge>
+                            </span>
                           </q-item-label>
                         </q-item-section>
                       </q-item>
@@ -1311,6 +1359,8 @@ const armorTemplate = ref(null);
 
 // Weapon selection state
 const selectedWeaponToAdd = ref(null);
+const weaponSearchQuery = ref("");
+const weaponTypeFilter = ref(null);
 
 // Talent-Auswahl
 const selectedTalentIds = ref([]);
@@ -1474,6 +1524,7 @@ const availableWeapons = computed(() => {
         damage: w.damage,
         pen: w.pen,
         range: w.range,
+        type: w.type,
       }));
   }
 
@@ -1489,8 +1540,38 @@ const availableWeapons = computed(() => {
       damage: w.damage,
       pen: w.pen,
       range: w.range,
+      type: w.type,
     }));
 });
+
+const weaponTypeOptions = [
+  { label: "Nahkampf", value: "melee" },
+  { label: "Fernkampf", value: "ranged" },
+  { label: "Granate", value: "grenade" },
+  { label: "Geworfen", value: "thrown" },
+];
+
+const filteredAvailableWeapons = computed(() => {
+  let weapons = availableWeapons.value;
+
+  // Filter nach Suchtext
+  if (weaponSearchQuery.value) {
+    const query = weaponSearchQuery.value.toLowerCase();
+    weapons = weapons.filter(
+      (w) =>
+        w.label.toLowerCase().includes(query) ||
+        (w.damage && w.damage.toLowerCase().includes(query))
+    );
+  }
+
+  // Filter nach Typ
+  if (weaponTypeFilter.value) {
+    weapons = weapons.filter((w) => w.type === weaponTypeFilter.value);
+  }
+
+  return weapons;
+});
+
 // Methods
 const getCategoryColor = (category) => {
   const colors = {
@@ -1742,7 +1823,7 @@ const addWeaponInstance = () => {
   const weapon = selectedWeaponToAdd.value;
 
   const instance = {
-    ...(weaponStore.getWeaponById(weapon) || weapon), // Fallback auf das übergebene Objekt
+    ...weapon, // weapon ist bereits das komplette Objekt aus availableWeapons
     instanceId: Date.now() + Math.random(), // Unique instance ID
   };
 
@@ -2247,5 +2328,24 @@ const removeTagFilter = (tag) => {
     selectedTags.value.splice(index, 1);
     tagSearchQuery.value = selectedTags.value.join(", ");
   }
+};
+const getWeaponTypeColor = (type) => {
+  const colors = {
+    melee: "orange",
+    ranged: "blue",
+    grenade: "red",
+    thrown: "green",
+  };
+  return colors[type] || "grey";
+};
+
+const getWeaponTypeLabel = (type) => {
+  const labels = {
+    melee: "Nahkampf",
+    ranged: "Fernkampf",
+    grenade: "Granate",
+    thrown: "Geworfen",
+  };
+  return labels[type] || type;
 };
 </script>
